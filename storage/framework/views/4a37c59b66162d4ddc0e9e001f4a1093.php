@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<?php echo $__env->yieldContent('meta_description', "RAIL Bénin - Réseau d'appui aux initiatives locales"); ?>">
+    <meta name="theme-color" content="#007A5E">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo e(asset('favicon.png')); ?>">
+    <link rel="apple-touch-icon" href="<?php echo e(asset('favicon.png')); ?>">
+    <title><?php echo $__env->yieldContent('title', "RAIL Bénin | Réseau d'appui aux initiatives locales"); ?></title>
+
+    <link rel="preload" href="<?php echo e(asset('vendor/fontawesome/css/all.min.css')); ?>" as="style">
+    <link rel="stylesheet" href="<?php echo e(asset('vendor/fontawesome/css/all.min.css')); ?>">
+    <link rel="preload" href="<?php echo e(asset('vendor/fonts/google-fonts.css')); ?>" as="style">
+    <link rel="stylesheet" href="<?php echo e(asset('vendor/fonts/google-fonts.css')); ?>">
+
+    <style>
+        :root { --bg-texture: url('<?php echo e(asset('images/' . rawurlencode('arrière.png'))); ?>'); }
+    </style>
+
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
+</head>
+<body class="bg-[#F8F7F6] text-ink-800 antialiased">
+
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="<?php echo e(route('home')); ?>" class="navbar-brand">
+                <img src="<?php echo e(asset('images/logoRailLong.png')); ?>" alt="RAIL Bénin">
+            </a>
+
+            <div class="navbar-menu" id="navMenu">
+                <a href="<?php echo e(route('articles.index')); ?>" class="navbar-link <?php echo e(request()->routeIs('articles.*') ? 'active' : ''); ?>">Nouvelles</a>
+                <a href="<?php echo e(route('about')); ?>" class="navbar-link <?php echo e(request()->routeIs('about') ? 'active' : ''); ?>">Mission</a>
+                <a href="<?php echo e(route('activites')); ?>" class="navbar-link <?php echo e(request()->routeIs('activites') ? 'active' : ''); ?>">Activités</a>
+                <a href="<?php echo e(route('projects.index')); ?>" class="navbar-link <?php echo e(request()->routeIs('projects.*') ? 'active' : ''); ?>">Projets</a>
+                <a href="<?php echo e(route('opportunities.index')); ?>" class="navbar-link <?php echo e(request()->routeIs('opportunities.*') ? 'active' : ''); ?>">Opportunités</a>
+                <a href="<?php echo e(route('equipe')); ?>" class="navbar-link <?php echo e(request()->routeIs('equipe') ? 'active' : ''); ?>">Équipe</a>
+                <a href="<?php echo e(route('galleries.index')); ?>" class="navbar-link <?php echo e(request()->routeIs('galleries.*') ? 'active' : ''); ?>">Galeries</a>
+                <a href="<?php echo e(route('contact')); ?>" class="navbar-cta">
+                    <i class="fas fa-paper-plane"></i> Contact
+                </a>
+            </div>
+
+            <button class="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-ink-50 transition-all" id="menuBtn" aria-label="Menu">
+                <i class="fas fa-bars text-base text-ink-600" id="menuIcon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu hidden" id="mobileMenu">
+        <a href="<?php echo e(route('home')); ?>" class="mobile-logo" onclick="closeMenu()">
+            <img src="<?php echo e(asset('images/logoRailLong.png')); ?>" alt="RAIL Bénin">
+        </a>
+        <nav class="mobile-links">
+            <a href="<?php echo e(route('home')); ?>" class="<?php echo e(request()->routeIs('home') ? 'active' : ''); ?>" onclick="closeMenu()">Accueil</a>
+            <a href="<?php echo e(route('articles.index')); ?>" class="<?php echo e(request()->routeIs('articles.*') ? 'active' : ''); ?>" onclick="closeMenu()">Nouvelles</a>
+            <a href="<?php echo e(route('about')); ?>" class="<?php echo e(request()->routeIs('about') ? 'active' : ''); ?>" onclick="closeMenu()">Mission</a>
+            <a href="<?php echo e(route('activites')); ?>" class="<?php echo e(request()->routeIs('activites') ? 'active' : ''); ?>" onclick="closeMenu()">Activités</a>
+            <a href="<?php echo e(route('projects.index')); ?>" class="<?php echo e(request()->routeIs('projects.*') ? 'active' : ''); ?>" onclick="closeMenu()">Projets</a>
+            <a href="<?php echo e(route('opportunities.index')); ?>" class="<?php echo e(request()->routeIs('opportunities.*') ? 'active' : ''); ?>" onclick="closeMenu()">Opportunités</a>
+            <a href="<?php echo e(route('equipe')); ?>" class="<?php echo e(request()->routeIs('equipe') ? 'active' : ''); ?>" onclick="closeMenu()">Équipe</a>
+            <a href="<?php echo e(route('galleries.index')); ?>" class="<?php echo e(request()->routeIs('galleries.*') ? 'active' : ''); ?>" onclick="closeMenu()">Galeries</a>
+            <a href="<?php echo e(route('contact')); ?>" class="<?php echo e(request()->routeIs('contact') ? 'active' : ''); ?>" onclick="closeMenu()">Contact</a>
+        </nav>
+    </div>
+
+    <main class="min-h-screen">
+        <?php echo $__env->yieldContent('content'); ?>
+    </main>
+
+    <footer class="relative overflow-hidden bg-gradient-to-br from-primary-800 via-primary-700 to-primary-900">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[60rem] h-[60rem] bg-accent-500/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-white/5 rounded-full blur-3xl"></div>
+        <div class="absolute top-[30%] left-[5%] w-16 h-16 border border-accent-400/10 rounded-full"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 lg:py-20">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
+
+                <div class="sm:col-span-2 lg:col-span-4">
+                    <a href="<?php echo e(route('home')); ?>" class="block mb-6">
+                        <img src="<?php echo e(asset('images/logoRailLong.png')); ?>" alt="RAIL Bénin" class="h-16 w-auto">
+                    </a>
+                    <p class="text-sm leading-relaxed text-white max-w-xs mb-6">
+                        Le RAIL développe des projets concrets pour l'autonomie des populations, des compétences techniques et organisationnelles au profit des femmes et des jeunes au Bénin.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="https://www.facebook.com/railbenin" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-white/60 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/railbenin" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-white/60 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@railbenin" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-white/60 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3">
+                    <h4 class="text-white font-bold text-xs tracking-[0.2em] uppercase mb-6 relative">
+                        <span class="relative z-10">Navigation</span>
+                        <span class="absolute -bottom-1 left-0 w-8 h-[2px] bg-gradient-to-r from-accent-400 to-accent-500 rounded-full"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="<?php echo e(route('about')); ?>" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Mission</a></li>
+                        <li><a href="<?php echo e(route('activites')); ?>" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Activités</a></li>
+                        <li><a href="<?php echo e(route('projects.index')); ?>" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Projets</a></li>
+                        <li><a href="<?php echo e(route('opportunities.index')); ?>" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Opportunités</a></li>
+                        <li><a href="<?php echo e(route('equipe')); ?>" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Équipe</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <h4 class="text-white font-bold text-xs tracking-[0.2em] uppercase mb-6 relative">
+                        <span class="relative z-10">Pages</span>
+                        <span class="absolute -bottom-1 left-0 w-8 h-[2px] bg-gradient-to-r from-accent-400 to-accent-500 rounded-full"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="<?php echo e(route('articles.index')); ?>" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Actualités</a></li>
+                        <li><a href="<?php echo e(route('galleries.index')); ?>" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Galeries</a></li>
+                        <li><a href="<?php echo e(route('partners.index')); ?>" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Partenaires</a></li>
+                        <li><a href="<?php echo e(route('testimonials.index')); ?>" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Témoignages</a></li>
+                        <li><a href="<?php echo e(route('contact')); ?>" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-3">
+                    <h4 class="text-white font-bold text-xs tracking-[0.2em] uppercase mb-6 relative">
+                        <span class="relative z-10">Contact</span>
+                        <span class="absolute -bottom-1 left-0 w-8 h-[2px] bg-gradient-to-r from-accent-400 to-accent-500 rounded-full"></span>
+                    </h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-sm">
+                            <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-accent-400 text-xs"></i>
+                            </span>
+                            <span class="text-white mt-1.5">Cotonou, Bénin</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-accent-400 text-xs"></i>
+                            </span>
+                            <a href="mailto:railbenin@yahoo.fr" class="text-white hover:text-accent-300 transition-colors duration-300 mt-1.5">railbenin@yahoo.fr</a>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-accent-400 text-xs"></i>
+                            </span>
+                            <span class="text-white mt-1.5">+229 21 37 20 64</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative z-10 border-t border-white/5 py-6">
+            <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/60">
+                    <span>&copy; <?php echo e(date('Y')); ?> RAIL Bénin. Tous droits réservés.</span>
+                    <span class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent-400/50"></span>
+                        Construire l'autonomie, ensemble.
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent-400/50"></span>
+                    </span>
+                </div>
+                <div class="mt-4 text-center">
+                    <span class="text-xs text-white/60">Développé par
+                        <a href="https://wa.me/22954253797" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-semibold text-accent-400 underline underline-offset-4 hover:text-accent-300 hover:underline-offset-8 transition-all duration-300" title="Contacter Inès GANDAHO sur WhatsApp">
+                            Inès GANDAHO <i class="fas fa-external-link-alt text-[0.6rem]"></i>
+                        </a>
+                        <span class="text-white/40">— cliquez pour contacter</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        let isMenuOpen = false;
+
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 20);
+        }, { passive: true });
+
+        function closeMenu() {
+            mobileMenu.classList.add('hidden');
+            menuIcon.className = 'fas fa-bars text-base text-ink-600';
+            isMenuOpen = false;
+            document.body.style.overflow = '';
+            document.body.classList.remove('menu-open');
+        }
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.className = isMenuOpen
+                ? 'fas fa-times text-base text-ink-800'
+                : 'fas fa-bars text-base text-ink-600';
+            document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+            document.body.classList.toggle('menu-open', isMenuOpen);
+        }
+
+        if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
+
+        window.addEventListener('resize', () => {
+            if (isMenuOpen && window.innerWidth >= 1024) closeMenu();
+        });
+
+        document.addEventListener('click', (e) => {
+            if (isMenuOpen && !e.target.closest('#mobileMenu') && !e.target.closest('#menuBtn')) closeMenu();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isMenuOpen) closeMenu();
+        });
+
+        if (window.scrollY > 20) navbar.classList.add('scrolled');
+    </script>
+
+    <?php echo $__env->yieldPushContent('scripts'); ?>
+</body>
+</html>
+<?php /**PATH C:\xampp\htdocs\ongRail\resources\views/layouts/app.blade.php ENDPATH**/ ?>

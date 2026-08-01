@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie de Composants - ONG RAIL Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 p-8">
+<div class="max-w-6xl mx-auto">
+    <h1 class="text-5xl font-display font-bold mb-2">Galerie de Composants</h1>
+    <p class="text-lg text-slate-600 dark:text-slate-400 mb-12">Exemples d'utilisation du nouveau design system ONG RAIL</p>
+
+    <!-- Section: Buttons -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-display font-bold mb-8">Boutons</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-8 bg-slate-50 dark:bg-slate-900 rounded-xl">
+            <button class="btn btn-primary">
+                <i class="fas fa-check"></i> Primaire
+            </button>
+            <button class="btn btn-secondary">
+                <i class="fas fa-times"></i> Secondaire
+            </button>
+            <button class="btn btn-outline">
+                <i class="fas fa-info"></i> Outline
+            </button>
+            <button class="btn btn-ghost">
+                <i class="fas fa-link"></i> Ghost
+            </button>
+            <button class="btn btn-primary btn-sm">
+                Petit
+            </button>
+            <button class="btn btn-primary btn-lg">
+                Grand
+            </button>
+            <button class="btn btn-danger">
+                <i class="fas fa-trash"></i> Danger
+            </button>
+        </div>
+    </section>
+
+    <!-- Section: Cards -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-display font-bold mb-8">Cartes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="font-semibold">Titre de la carte</h3>
+                </div>
+                <div class="card-body">
+                    <p class="text-slate-600 dark:text-slate-400">Ceci est un exemple de contenu de carte avec texte descriptif.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary btn-sm">Action</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="w-full h-48 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg mb-4"></div>
+                    <h3 class="font-semibold mb-2">Image et contenu</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">Carte avec image et contenu descriptif.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="flex items-center justify-center mb-4">
+                        <i class="fas fa-star text-4xl text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-center font-semibold mb-2">Icône</h3>
+                    <p class="text-center text-sm text-slate-600 dark:text-slate-400">Carte avec icône centrale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Badges -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-display font-bold mb-8">Badges</h2>
+        <div class="flex flex-wrap gap-3 p-8 bg-slate-50 dark:bg-slate-900 rounded-xl">
+            <span class="badge badge-primary">Primaire</span>
+            <span class="badge badge-secondary">Secondaire</span>
+            <span class="badge badge-success">Succès</span>
+            <span class="badge badge-warning">Attention</span>
+            <span class="badge badge-danger">Erreur</span>
+        </div>
+    </section>
+
+    <!-- Section: Forms -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-display font-bold mb-8">Formulaires</h2>
+        <div class="max-w-md">
+            <div class="form-group">
+                <label class="form-label">Nom complet</label>
+                <input type="text" class="form-input" placeholder="Jean Dupont">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-input" placeholder="jean@example.com">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea class="form-input" placeholder="Votre message..."></textarea>
+            </div>
+            <button class="btn btn-primary w-full">Envoyer</button>
+        </div>
+    </section>
+
+    <!-- Section: Alerts -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-display font-bold mb-8">Alertes</h2>
+        <div class="space-y-4">
+            <div class="alert alert-success">
+                <i class="fas fa-check-circle"></i>
+                <span>Opération réussie! Vos données ont été enregistrées.</span>
+            </div>
+            <div class="alert alert-error">
+                <i class="fas fa-exclamation-circle"></i>
+                <span>Une erreur s'est produite. Veuillez réessayer.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Grid System -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-display font-bold mb-8">Grilles Responsive</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-emerald-100 dark:bg-emerald-950 p-6 rounded-lg text-center font-semibold">1 col mobile</div>
+            <div class="bg-emerald-100 dark:bg-emerald-950 p-6 rounded-lg text-center font-semibold">2 col tablet</div>
+            <div class="bg-emerald-100 dark:bg-emerald-950 p-6 rounded-lg text-center font-semibold">4 col desktop</div>
+            <div class="bg-emerald-100 dark:bg-emerald-950 p-6 rounded-lg text-center font-semibold">Ultra-wide</div>
+        </div>
+    </section>
+
+    <!-- Section: Typography -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-display font-bold mb-8">Typographie</h2>
+        <div class="space-y-6">
+            <div>
+                <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">Très petit (xs)</p>
+                <p class="text-xs">Ceci est un texte très petit</p>
+            </div>
+            <div>
+                <p class="text-sm text-slate-500 uppercase tracking-wider mb-2">Petit (sm)</p>
+                <p class="text-sm">Ceci est un texte petit</p>
+            </div>
+            <div>
+                <p class="text-base text-slate-500 uppercase tracking-wider mb-2">Normal (base)</p>
+                <p class="text-base">Ceci est un texte normal avec une bonne lisibilité</p>
+            </div>
+            <div>
+                <p class="text-lg text-slate-500 uppercase tracking-wider mb-2">Grand (lg)</p>
+                <p class="text-lg">Ceci est un texte plus grand pour les descriptions</p>
+            </div>
+            <h1 class="text-5xl font-display font-bold mt-8">Titre Principal</h1>
+            <h2 class="text-4xl font-display font-bold">Titre Secondaire</h2>
+            <h3 class="text-3xl font-display font-bold">Titre Tertiaire</h3>
+        </div>
+    </section>
+
+    <!-- Section: Colors -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-display font-bold mb-8">Palette de Couleurs</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div>
+                <div class="h-24 bg-emerald-600 rounded-lg mb-2"></div>
+                <p class="font-semibold">Primaire</p>
+                <p class="text-sm text-slate-600">#10B981</p>
+            </div>
+            <div>
+                <div class="h-24 bg-slate-900 rounded-lg mb-2"></div>
+                <p class="font-semibold">Secondaire</p>
+                <p class="text-sm text-slate-600">#0F172A</p>
+            </div>
+            <div>
+                <div class="h-24 bg-red-600 rounded-lg mb-2"></div>
+                <p class="font-semibold">Accent</p>
+                <p class="text-sm text-slate-600">#F04438</p>
+            </div>
+            <div>
+                <div class="h-24 bg-slate-100 border border-slate-300 rounded-lg mb-2"></div>
+                <p class="font-semibold">Background</p>
+                <p class="text-sm text-slate-600">#F9FAFB</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Feature Cards -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-display font-bold mb-8">Cartes de Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3 class="feature-title">Rapide</h3>
+                <p class="feature-description">Performance optimale sur tous les appareils avec Tailwind CSS</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-title">Sécurisé</h3>
+                <p class="feature-description">Construction sécurisée avec Laravel et bonnes pratiques</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="feature-title">Responsive</h3>
+                <p class="feature-description">Design parfait sur mobile, tablet et desktop</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Stats -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-display font-bold mb-8">Statistiques</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Bénéficiaires</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div>
+                    <div class="stat-number">45</div>
+                    <div class="stat-label">Projets</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div>
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Partenaires</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Années</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="my-16 border-slate-200 dark:border-slate-800">
+
+    <div class="bg-emerald-50 dark:bg-emerald-950 p-8 rounded-xl">
+        <h3 class="text-2xl font-display font-bold mb-4">Prêt à démarrer?</h3>
+        <p class="text-slate-700 dark:text-slate-300 mb-6">Consultez le guide complet pour apprendre à utiliser tous les composants et personnaliser le design selon vos besoins.</p>
+        <a href="DESIGN_SYSTEM.md" class="btn btn-primary">
+            <i class="fas fa-book"></i> Voir le guide complet
+        </a>
+    </div>
+</div>
+</body>
+</html>

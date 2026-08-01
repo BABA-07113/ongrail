@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" fill="none">
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="warnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="dangerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#DC2626"/>
+    </linearGradient>
+  </defs>
+  <!-- Leaf icon with 3 colors -->
+  <g transform="translate(2, 8)">
+    <path d="M18 2C8 2 2 10 2 18c0 8 6 14 14 14 8 0 16-6 16-16 0-10-6-14-14-14z" fill="url(#brandGrad)" opacity="0.9"/>
+    <path d="M10 10c-2 4-1 10 4 14" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M18 8c-4 0-8 4-8 10" stroke="url(#warnGrad)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <circle cx="14" cy="20" r="2" fill="url(#dangerGrad)"/>
+  </g>
+  <!-- RAIL text -->
+  <text x="42" y="38" font-family="'Sora', 'Segoe UI', Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="1" fill="#10B981">RAIL</text>
+  <!-- Bénin text -->
+  <text x="104" y="38" font-family="'Inter', 'Segoe UI', Arial, sans-serif" font-size="20" font-weight="400" fill="#6B7280">Bénin</text>
+  <!-- Small underline -->
+  <line x1="42" y1="46" x2="160" y2="46" stroke="url(#warnGrad)" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
