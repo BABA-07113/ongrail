@@ -30,7 +30,7 @@
  <div class="actions" style="display:flex;gap:4px;">
  <a href="{{ route('admin.opportunites.show', $opp) }}" class="btn btn-sm btn-outline" title="Candidatures"><i class="fas fa-users"></i></a>
  <a href="{{ route('admin.opportunites.edit', $opp) }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
- <form action="{{ route('admin.opportunites.destroy', $opp) }}" method="POST" onsubmit="return confirm('Supprimer ?')">@csrf @method('DELETE')<button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></form>
+ <button type="button" onclick="openDeleteModal('{{ route('admin.opportunites.destroy', $opp) }}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
  </div>
  </td>
  </tr>

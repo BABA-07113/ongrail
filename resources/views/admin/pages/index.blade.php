@@ -21,7 +21,7 @@
  <td>
  <div class="actions">
  <a href="{{ route('admin.pages.edit', $page) }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
- <form action="{{ route('admin.pages.destroy', $page) }}" method="POST" onsubmit="return confirm('Supprimer cette page ?')">@csrf @method('DELETE')<button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></form>
+ <button type="button" onclick="openDeleteModal('{{ route('admin.pages.destroy', $page) }}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
  </div>
  </td>
  </tr>

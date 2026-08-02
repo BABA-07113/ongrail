@@ -21,7 +21,7 @@
  <td>
  <div class="actions">
  <a href="{{ route('admin.temoignages.edit', $testimonial) }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
- <form action="{{ route('admin.temoignages.destroy', $testimonial) }}" method="POST" onsubmit="return confirm('Supprimer ?')">@csrf @method('DELETE')<button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></form>
+ <button type="button" onclick="openDeleteModal('{{ route('admin.temoignages.destroy', $testimonial) }}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
  </div>
  </td>
  </tr>

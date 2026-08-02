@@ -110,7 +110,7 @@
  <input type="number" name="sort_orders[{{ $image->id }}]" class="form-control" value="{{ $image->sort_order }}" min="0" style="width:70px;">
  </td>
  <td>
- <button type="button" class="action-btn delete" onclick="if(confirm('Supprimer cette image ?')) { document.getElementById('delete-image-{{ $image->id }}').submit(); }">
+ <button type="button" class="action-btn delete" onclick="openDeleteModal('{{ route('admin.articles.images.destroy', $image) }}')">
  <i class="fas fa-trash"></i>
  </button>
  </td>
@@ -124,11 +124,6 @@
  </div>
  </form>
 
- @foreach($article->images as $image)
- <form id="delete-image-{{ $image->id }}" action="{{ route('admin.articles.images.destroy', $image) }}" method="POST" style="display:none;">
- @csrf @method('DELETE')
- </form>
- @endforeach
  </div>
 </div>
 @endif

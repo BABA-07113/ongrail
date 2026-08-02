@@ -7,10 +7,10 @@
  <div class="flex items-center justify-center gap-3 mb-6">
  <span class="w-3 h-3 rounded-full bg-primary-500"></span>
  <span class="w-3 h-3 rounded-full bg-accent-500"></span>
- <span class="w-3 h-3 rounded-full bg-danger-500"></span>
+  <span class="w-3 h-3 rounded-full bg-fire-500"></span>
  </div>
  <h1>
- <span class="bg-gradient-to-r from-primary-400 via-accent-400 to-danger-400 text-transparent bg-clip-text">RAIL</span>
+  <span class="bg-gradient-to-r from-primary-400 via-accent-400 to-fire-400 text-transparent bg-clip-text">RAIL</span>
  <span class="text-surface-600"> Bénin</span>
  </h1>
  <p class="login-subtitle">Connectez-vous à votre espace d'administration</p>

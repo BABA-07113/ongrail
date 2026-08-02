@@ -22,7 +22,7 @@
  <div class="actions">
  <a href="{{ route('admin.utilisateurs.edit', $user) }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
  @if($user->id !== auth()->id())
- <form action="{{ route('admin.utilisateurs.destroy', $user) }}" method="POST" onsubmit="return confirm('Supprimer ?')">@csrf @method('DELETE')<button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></form>
+ <button type="button" onclick="openDeleteModal('{{ route('admin.utilisateurs.destroy', $user) }}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
  @endif
  </div>
  </td>

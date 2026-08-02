@@ -24,10 +24,7 @@
  @forelse($gallery->images as $image)
  <div style="position:relative;border-radius:8px;overflow:hidden;">
  <img src="{{ $image->image }}" alt="{{ $image->caption ?: $gallery->title }}" style="width:100%;height:180px;object-fit:cover;">
- <form action="{{ route('admin.galeries.images.destroy', $image) }}" method="POST" style="position:absolute;top:5px;right:5px;">
- @csrf @method('DELETE')
- <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Supprimer cette image ?')" style="padding:4px 8px;"><i class="fas fa-times"></i></button>
- </form>
+ <button type="button" onclick="openDeleteModal('{{ route('admin.galeries.images.destroy', $image) }}')" class="btn btn-sm btn-danger" style="position:absolute;top:5px;right:5px;padding:4px 8px;"><i class="fas fa-times"></i></button>
  </div>
  @empty
  <div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-light);">Aucune image dans cet album.</div>

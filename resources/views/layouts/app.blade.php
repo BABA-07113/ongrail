@@ -22,6 +22,11 @@
 </head>
 <body class="bg-[#F8F7F6] text-ink-800 antialiased">
 
+    <div id="preloader" class="preloader">
+        <img src="{{ asset('images/logoRailLong.png') }}" alt="RAIL Bénin" class="preloader-logo">
+        <div class="preloader-bar"></div>
+    </div>
+
     <nav class="navbar" id="navbar">
         <div class="navbar-container">
             <a href="{{ route('home') }}" class="navbar-brand">
@@ -64,7 +69,7 @@
             <a href="{{ route('equipe') }}" class="{{ request()->routeIs('equipe') ? 'active' : '' }}" onclick="closeMenu()">Équipe</a>
             <a href="{{ route('galleries.index') }}" class="{{ request()->routeIs('galleries.*') ? 'active' : '' }}" onclick="closeMenu()">Galeries</a>
             <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}" onclick="closeMenu()">Contact</a>
-            <a href="{{ route('admin.login') }}" class="inline-flex items-center gap-3 {{ request()->routeIs('admin.login') ? 'active' : '' }}" onclick="closeMenu()"><i class="fas fa-lock"></i> Espace admin</a>
+            <a href="{{ route('admin.login') }}" class="inline-flex items-center justify-center {{ request()->routeIs('admin.login') ? 'active' : '' }}" onclick="closeMenu()" title="Espace administrateur" aria-label="Espace administrateur"><i class="fas fa-lock"></i></a>
         </nav>
     </div>
 
@@ -180,6 +185,17 @@
     </footer>
 
     <script>
+        const preloader = document.getElementById('preloader');
+        function hidePreloader() {
+            if (preloader) {
+                document.body.classList.remove('preloader-active');
+                preloader.classList.add('hidden');
+            }
+        }
+        document.body.classList.add('preloader-active');
+        window.addEventListener('load', hidePreloader);
+        setTimeout(hidePreloader, 3500);
+
         const navbar = document.getElementById('navbar');
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');

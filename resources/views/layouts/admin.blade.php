@@ -13,238 +13,6 @@
 
  @vite(['resources/css/app.css', 'resources/js/app.js'])
 
- <style>
- body { @apply flex min-h-screen bg-surface-50 }
-
- .admin-sidebar {
- @apply fixed left-0 top-0 h-screen w-64 z-40;
- @apply bg-surface-950
- @apply border-r border-surface-800/50;
- @apply overflow-y-auto transition-all duration-300;
- }
-
- .admin-sidebar.collapsed { @apply -translate-x-full; }
-
- .sidebar-brand {
- @apply p-6 border-b border-surface-800/50;
- }
-
- .sidebar-brand a {
- @apply font-display font-bold text-2xl text-white;
- @apply flex items-center gap-2;
- }
-
- .sidebar-brand .primary-dot {
- @apply w-3 h-3 rounded-full bg-gradient-to-r from-primary-500 via-accent-500 to-danger-500;
- }
-
- .sidebar-nav { @apply p-4 space-y-1; }
-
- .nav-label {
- @apply px-4 py-3 text-xs font-semibold text-surface-500 uppercase tracking-widest;
- }
-
- .sidebar-nav a {
- @apply flex items-center gap-3 px-4 py-3 rounded-xl;
- @apply text-surface-400 hover:text-white;
- @apply hover:bg-surface-800/50;
- @apply transition-all duration-200 text-sm font-medium;
- }
-
- .sidebar-nav a.active {
- @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-lg shadow-primary-600/20;
- }
-
- .sidebar-nav a i { @apply w-5 text-center text-base; }
-
- .admin-main { @apply flex-1 ml-64 transition-all duration-300; }
- .admin-main.expanded { @apply ml-0; }
-
- .admin-topbar {
- @apply sticky top-0 z-30;
- @apply bg-white/80 backdrop-blur-xl;
- @apply border-b border-surface-200
- @apply px-8 py-4 flex items-center justify-between;
- }
-
- .topbar-title {
- @apply text-2xl font-display font-bold;
- @apply text-surface-900
- }
-
- .admin-content { @apply p-8 min-h-screen; }
-
- .admin-card {
- @apply bg-white rounded-2xl;
- @apply border border-surface-200
- @apply shadow-sm hover:shadow-md;
- @apply transition-all duration-300 overflow-hidden;
- }
-
- .admin-card .card-header {
- @apply px-6 py-5 border-b border-surface-200
- @apply flex items-center justify-between;
- @apply bg-surface-50/50
- }
-
- .admin-card .card-header h3 {
- @apply font-display font-bold text-lg text-surface-900
- }
-
- .admin-card .card-body { @apply p-6; }
-
- .admin-card .card-footer {
- @apply px-6 py-4 border-t border-surface-200
- @apply bg-surface-50/30
- @apply flex justify-end gap-3;
- }
-
- /* Stats Grid */
- .stats-grid {
- @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8;
- }
-
- .stat-card {
- @apply bg-white rounded-2xl p-6;
- @apply border border-surface-200
- @apply flex items-center gap-5;
- @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
- }
-
- .stat-icon {
- @apply w-14 h-14 rounded-2xl flex items-center justify-center text-2xl;
- }
-
- .stat-icon.brand {
- @apply bg-primary-100 text-primary-600
- }
- .stat-icon.warn {
- @apply bg-accent-100 text-accent-600
- }
- .stat-icon.danger {
- @apply bg-danger-100 text-danger-600
- }
- .stat-icon.surface {
- @apply bg-surface-100 text-surface-600
- }
-
- .stat-number {
- @apply text-3xl font-display font-bold text-surface-900
- }
- .stat-label {
- @apply text-sm font-medium text-surface-500
- }
-
- /* Tables */
- .table-container { @apply overflow-x-auto; }
-
- table { @apply w-full text-sm; }
-
- table th {
- @apply px-6 py-4 text-left font-semibold text-xs uppercase tracking-wider;
- @apply bg-surface-50
- @apply border-b border-surface-200
- @apply text-surface-600
- }
-
- table td {
- @apply px-6 py-4 border-b border-surface-100
- @apply text-surface-700
- }
-
- table tbody tr:hover { @apply bg-surface-50 }
-
- /* Alerts */
- .alert {
- @apply p-4 rounded-xl mb-6 flex items-center gap-3;
- @apply border-l-4;
- }
-
- .alert-success {
- @apply bg-primary-50 text-primary-800
- @apply border-l-primary-500;
- }
-
- .alert-error {
- @apply bg-danger-50 text-danger-800
- @apply border-l-danger-500;
- }
-
- .alert-warning {
- @apply bg-accent-50 text-accent-800
- @apply border-l-accent-500;
- }
-
- /* Login Page */
- .login-page {
- @apply min-h-screen flex items-center justify-center;
- background: linear-gradient(135deg, #022C22 0%, #065F46 50%, #064E3B 100%);
- }
-
- .login-box {
- @apply bg-white rounded-2xl p-8;
- @apply w-full max-w-md shadow-2xl;
- @apply border border-surface-200
- }
-
- .login-box h1 {
- @apply text-3xl font-display font-bold text-center mb-2;
- @apply text-surface-900
- }
-
- .login-box .login-subtitle {
- @apply text-center text-surface-500 mb-8 text-sm;
- }
-
- /* Forms */
- .form-group { @apply mb-5; }
-
- .form-label {
- @apply block text-sm font-semibold text-surface-900 mb-2;
- }
-
- .form-input,
- .form-select,
- textarea {
- @apply w-full px-5 py-3 rounded-xl;
- @apply border-2 border-surface-200
- @apply bg-white
- @apply text-surface-900
- @apply placeholder-surface-400
- @apply transition-all duration-200 outline-none;
- }
-
- .form-input:focus,
- .form-select:focus,
- textarea:focus {
- @apply border-primary-500 ring-4 ring-primary-500/10;
- }
-
- textarea { @apply min-h-[120px] resize-y; }
-
- /* Action buttons */
- .action-group { @apply flex items-center gap-2; }
-
- .action-btn {
- @apply w-8 h-8 rounded-lg flex items-center justify-center text-sm;
- @apply transition-all duration-200;
- }
-
- .action-btn.view { @apply bg-primary-100 text-primary-700 hover:bg-primary-200 }
- .action-btn.edit { @apply bg-accent-100 text-accent-700 hover:bg-accent-200 }
- .action-btn.delete { @apply bg-danger-100 text-danger-700 hover:bg-danger-200 }
-
- /* Responsive */
- @media (max-width: 768px) {
- .admin-sidebar { @apply -translate-x-full; }
- .admin-sidebar.active { @apply translate-x-0; }
- .admin-main { @apply ml-0; }
- .admin-content { @apply p-4; }
- .stats-grid { @apply grid-cols-1; }
- .admin-topbar { @apply px-4; }
- }
- </style>
-
  @stack('styles')
 </head>
 <body class="bg-surface-50">
@@ -372,11 +140,52 @@
  </div>
  @endif
 
+ <!-- Delete Confirmation Modal -->
+ <div id="deleteModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+ <div class="absolute inset-0 bg-surface-950/60 backdrop-blur-sm" onclick="closeDeleteModal()"></div>
+ <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 border border-surface-200">
+ <div class="flex items-start gap-4">
+ <div class="w-12 h-12 rounded-2xl bg-fire-100 text-fire-600 flex items-center justify-center text-xl shrink-0">
+ <i class="fas fa-trash-alt"></i>
+ </div>
+ <div>
+ <h3 class="font-display font-bold text-lg text-surface-900">Confirmer la suppression</h3>
+ <p class="mt-1 text-sm text-surface-500">Cette action est irréversible. Voulez-vous vraiment supprimer cet élément ?</p>
+ </div>
+ </div>
+ <div class="mt-6 flex justify-end gap-3">
+ <button type="button" onclick="closeDeleteModal()" class="btn btn-outline">Annuler</button>
+ <form id="deleteForm" method="POST" action="">
+ @csrf
+ @method('DELETE')
+ <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Supprimer</button>
+ </form>
+ </div>
+ </div>
+ </div>
+
  <!-- Admin Scripts -->
  <script>
  const sidebarToggle = document.getElementById('sidebarToggle');
  const adminSidebar = document.getElementById('adminSidebar');
  const adminMain = document.getElementById('adminMain');
+
+ function openDeleteModal(url) {
+ document.getElementById('deleteForm').setAttribute('action', url);
+ const modal = document.getElementById('deleteModal');
+ modal.classList.remove('hidden');
+ modal.classList.add('flex');
+ }
+
+ function closeDeleteModal() {
+ const modal = document.getElementById('deleteModal');
+ modal.classList.add('hidden');
+ modal.classList.remove('flex');
+ }
+
+ document.addEventListener('keydown', function(e) {
+ if (e.key === 'Escape') closeDeleteModal();
+ });
 
  if (sidebarToggle) {
  sidebarToggle.addEventListener('click', () => {

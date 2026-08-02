@@ -21,7 +21,7 @@
  <div class="actions">
  <a href="{{ route('admin.galeries.images', $gallery) }}" class="btn btn-sm btn-info"><i class="fas fa-images"></i></a>
  <a href="{{ route('admin.galeries.edit', $gallery) }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
- <form action="{{ route('admin.galeries.destroy', $gallery) }}" method="POST" onsubmit="return confirm('Supprimer cet album ?')">@csrf @method('DELETE')<button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></form>
+ <button type="button" onclick="openDeleteModal('{{ route('admin.galeries.destroy', $gallery) }}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
  </div>
  </td>
  </tr>
