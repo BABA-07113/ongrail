@@ -39,7 +39,6 @@
                 <a href="{{ route('activites') }}" class="navbar-link {{ request()->routeIs('activites') ? 'active' : '' }}">Activités</a>
                 <a href="{{ route('projects.index') }}" class="navbar-link {{ request()->routeIs('projects.*') ? 'active' : '' }}">Projets</a>
                 <a href="{{ route('opportunities.index') }}" class="navbar-link {{ request()->routeIs('opportunities.*') ? 'active' : '' }}">Opportunités</a>
-                <a href="{{ route('equipe') }}" class="navbar-link {{ request()->routeIs('equipe') ? 'active' : '' }}">Équipe</a>
                 <a href="{{ route('galleries.index') }}" class="navbar-link {{ request()->routeIs('galleries.*') ? 'active' : '' }}">Galeries</a>
                 <a href="{{ route('contact') }}" class="navbar-cta">
                     <i class="fas fa-paper-plane"></i> Contact
@@ -66,7 +65,6 @@
             <a href="{{ route('activites') }}" class="{{ request()->routeIs('activites') ? 'active' : '' }}" onclick="closeMenu()">Activités</a>
             <a href="{{ route('projects.index') }}" class="{{ request()->routeIs('projects.*') ? 'active' : '' }}" onclick="closeMenu()">Projets</a>
             <a href="{{ route('opportunities.index') }}" class="{{ request()->routeIs('opportunities.*') ? 'active' : '' }}" onclick="closeMenu()">Opportunités</a>
-            <a href="{{ route('equipe') }}" class="{{ request()->routeIs('equipe') ? 'active' : '' }}" onclick="closeMenu()">Équipe</a>
             <a href="{{ route('galleries.index') }}" class="{{ request()->routeIs('galleries.*') ? 'active' : '' }}" onclick="closeMenu()">Galeries</a>
             <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}" onclick="closeMenu()">Contact</a>
             <a href="{{ route('admin.login') }}" class="inline-flex items-center justify-center {{ request()->routeIs('admin.login') ? 'active' : '' }}" onclick="closeMenu()" title="Espace administrateur" aria-label="Espace administrateur"><i class="fas fa-lock"></i></a>
@@ -115,7 +113,6 @@
                         <li><a href="{{ route('activites') }}" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Activités</a></li>
                         <li><a href="{{ route('projects.index') }}" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Projets</a></li>
                         <li><a href="{{ route('opportunities.index') }}" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Opportunités</a></li>
-                        <li><a href="{{ route('equipe') }}" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Équipe</a></li>
                     </ul>
                 </div>
 

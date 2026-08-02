@@ -228,10 +228,10 @@ class GallerySeeder extends Seeder
 
             $galleryData['cover_image'] = $images[0]['image'];
 
-            $gallery = Gallery::create($galleryData);
+            $gallery = Gallery::firstOrCreate(['slug' => $galleryData['slug']], $galleryData);
 
             foreach ($images as $imageData) {
-                $gallery->images()->create($imageData);
+                $gallery->images()->firstOrCreate(['image' => $imageData['image']], $imageData);
             }
         }
     }

@@ -78,7 +78,7 @@ class TeamMemberSeeder extends Seeder
         ];
 
         foreach ($members as $member) {
-            TeamMember::create($member);
+            TeamMember::firstOrCreate(['name' => $member['name']], $member);
         }
     }
 }

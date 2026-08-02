@@ -67,7 +67,7 @@ class ResourceSeeder extends Seeder
         ];
 
         foreach ($resources as $resource) {
-            Resource::create($resource);
+            Resource::firstOrCreate(['title' => $resource['title']], $resource);
         }
     }
 }

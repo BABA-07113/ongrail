@@ -300,10 +300,10 @@ class ArticleSeeder extends Seeder
             $images = $articleData['images'] ?? [];
             unset($articleData['images']);
 
-            $article = Article::create($articleData);
+            $article = Article::firstOrCreate(['slug' => $articleData['slug']], $articleData);
 
             foreach ($images as $imageData) {
-                $article->images()->create($imageData);
+                $article->images()->firstOrCreate(['image' => $imageData['image']], $imageData);
             }
         }
     }

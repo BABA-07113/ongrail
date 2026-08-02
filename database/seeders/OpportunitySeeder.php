@@ -68,7 +68,7 @@ class OpportunitySeeder extends Seeder
         ];
 
         foreach ($opportunities as $opportunity) {
-            Opportunity::create($opportunity);
+            Opportunity::firstOrCreate(['slug' => $opportunity['slug']], $opportunity);
         }
     }
 }
