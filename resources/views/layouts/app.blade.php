@@ -39,6 +39,9 @@
                 <a href="{{ route('contact') }}" class="navbar-cta">
                     <i class="fas fa-paper-plane"></i> Contact
                 </a>
+                <a href="{{ route('admin.login') }}" class="navbar-link" title="Espace administrateur" aria-label="Espace administrateur">
+                    <i class="fas fa-lock"></i>
+                </a>
             </div>
 
             <button class="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-ink-50 transition-all" id="menuBtn" aria-label="Menu">
@@ -61,6 +64,7 @@
             <a href="{{ route('equipe') }}" class="{{ request()->routeIs('equipe') ? 'active' : '' }}" onclick="closeMenu()">Équipe</a>
             <a href="{{ route('galleries.index') }}" class="{{ request()->routeIs('galleries.*') ? 'active' : '' }}" onclick="closeMenu()">Galeries</a>
             <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}" onclick="closeMenu()">Contact</a>
+            <a href="{{ route('admin.login') }}" class="inline-flex items-center gap-3 {{ request()->routeIs('admin.login') ? 'active' : '' }}" onclick="closeMenu()"><i class="fas fa-lock"></i> Espace admin</a>
         </nav>
     </div>
 

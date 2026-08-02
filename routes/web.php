@@ -90,6 +90,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('contacts/{contact}/archive', [AdminContactController::class, 'archive'])->name('contacts.archive');
         Route::resource('parametres', AdminSettingController::class)->only(['index', 'update']);
         Route::post('parametres', [AdminSettingController::class, 'update'])->name('parametres.update');
+        Route::get('profil', [AdminSettingController::class, 'profil'])->name('profil');
+        Route::post('profil', [AdminSettingController::class, 'updateProfil'])->name('profil.update');
         Route::resource('utilisateurs', AdminUserController::class);
         Route::resource('equipe', AdminTeamMemberController::class);
     });

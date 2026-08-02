@@ -22,4 +22,15 @@ class SettingController extends Controller
 
         return back()->with('success', 'Paramètres mis à jour avec succès.');
     }
+
+    public function profil()
+    {
+        $settings = Setting::all()->groupBy('group');
+        return view('admin.profil.index', compact('settings'));
+    }
+
+    public function updateProfil(Request $request)
+    {
+        return $this->update($request);
+    }
 }

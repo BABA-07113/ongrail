@@ -296,6 +296,9 @@
  <a href="{{ route('admin.contacts.index') }}" class="{{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">
  <i class="fas fa-envelope"></i> <span>Messages</span>
  </a>
+ <a href="{{ route('admin.profil.index') }}" class="{{ request()->routeIs('admin.profil.*') ? 'active' : '' }}">
+ <i class="fas fa-address-card"></i> <span>Profil & coordonnées</span>
+ </a>
  <a href="{{ route('admin.utilisateurs.index') }}" class="{{ request()->routeIs('admin.utilisateurs.*') ? 'active' : '' }}">
  <i class="fas fa-user-shield"></i> <span>Utilisateurs</span>
  </a>
