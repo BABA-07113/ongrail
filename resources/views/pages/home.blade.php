@@ -54,7 +54,7 @@
                 </div>
 
                 {{-- Right: emblem --}}
-                <div class="lg:col-span-6 flex justify-center lg:justify-start">
+                <div class="lg:col-span-6 hidden lg:flex justify-center lg:justify-start">
                     <div class="w-full max-w-[36rem] lg:max-w-[42rem] drop-shadow-2xl">
                         <img src="{{ asset('images/logo2-transparent.png') }}" alt="RAIL Bénin" class="w-full h-auto object-contain">
                     </div>
