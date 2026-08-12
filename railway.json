@@ -5,7 +5,7 @@
     "buildCommand": "composer install --no-dev --optimize-autoloader --no-scripts && rm -f bootstrap/cache/packages.php bootstrap/cache/services.php && npm ci && npm run build"
   },
   "deploy": {
-    "startCommand": "rm -f bootstrap/cache/packages.php bootstrap/cache/services.php && php artisan migrate --force && php bin/seed-once.php && node /assets/scripts/prestart.mjs /app/nginx.template.conf /nginx.conf && (php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf)",
+    "startCommand": "rm -f bootstrap/cache/packages.php bootstrap/cache/services.php && chmod -R 777 storage database && php artisan migrate --force && php bin/seed-once.php && node /assets/scripts/prestart.mjs /app/nginx.template.conf /nginx.conf && (php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf)",
     "healthcheckPath": "/up",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",
