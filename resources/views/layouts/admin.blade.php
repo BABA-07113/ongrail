@@ -87,8 +87,14 @@
  @endif
 
  <!-- Main Content Area -->
- <div class="admin-main" id="adminMain" style="{{ request()->routeIs('admin.login') ? 'margin-left:0;' : '' }}">
- @if (!request()->routeIs('admin.login'))
+ @if (request()->routeIs('admin.login'))
+ <div class="login-page">
+ <div class="login-box">
+ @yield('content')
+ </div>
+ </div>
+ @else
+ <div class="admin-main" id="adminMain">
  <!-- Topbar -->
  <header class="admin-topbar">
  <div class="flex items-center gap-4">
@@ -104,7 +110,6 @@
  </div>
  </div>
  </header>
- @endif
 
  <!-- Content Area -->
  <div class="admin-content">
@@ -127,14 +132,6 @@
  </div>
  @endif
 
- @yield('content')
- </div>
- </div>
-
- <!-- Login Page Container -->
- @if (request()->routeIs('admin.login'))
- <div class="login-page">
- <div class="login-box">
  @yield('content')
  </div>
  </div>
