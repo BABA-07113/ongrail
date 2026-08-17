@@ -1,0 +1,12 @@
+node_modules
+vendor
+.env
+.git
+.gitignore
+*.log
+.phpactor.json
+.phpunit.result.cache
+.phpunit.cache
+storage/*.key
+storage/pail
+bootstrap/cache/*.php
