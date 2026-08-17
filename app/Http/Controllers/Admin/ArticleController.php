@@ -30,7 +30,11 @@ class ArticleController extends Controller
             'title' => 'required|max:255',
             'content' => 'required',
             'excerpt' => 'nullable',
-            'featured_image' => 'nullable|max:255',
+            'featured_image' => ['nullable', 'string', 'max:255', function ($attribute, $value, $fail) {
+                if ($value !== null && $value !== '' && !filter_var($value, FILTER_VALIDATE_URL) && !str_starts_with($value, '/')) {
+                    $fail('L\'image à la une doit être une URL valide ou un chemin local.');
+                }
+            }],
             'category_id' => 'nullable|exists:categories,id',
             'status' => 'required|in:draft,published,scheduled',
             'published_at' => 'nullable|date',
@@ -77,7 +81,11 @@ class ArticleController extends Controller
             'title' => 'required|max:255',
             'content' => 'required',
             'excerpt' => 'nullable',
-            'featured_image' => 'nullable|max:255',
+            'featured_image' => ['nullable', 'string', 'max:255', function ($attribute, $value, $fail) {
+                if ($value !== null && $value !== '' && !filter_var($value, FILTER_VALIDATE_URL) && !str_starts_with($value, '/')) {
+                    $fail('L\'image à la une doit être une URL valide ou un chemin local.');
+                }
+            }],
             'category_id' => 'nullable|exists:categories,id',
             'status' => 'required|in:draft,published,scheduled',
             'published_at' => 'nullable|date',

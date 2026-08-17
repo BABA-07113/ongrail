@@ -31,10 +31,15 @@ class UserController extends Controller
             'is_active' => 'nullable|boolean',
         ]);
 
+        if ($data['role'] === 'super_admin' && !auth()->user()->isSuperAdmin()) {
+            return back()->withErrors(['role' => 'Seul un super administrateur peut créer un super administrateur.'])
+                ->withInput($request->except('password'));
+        }
+
         $data['password'] = Hash::make($data['password']);
         User::create($data);
 
-        return redirect()->route('admin.users.index')->with('success', 'Utilisateur créé avec succès.');
+        return redirect()->route('admin.utilisateurs.index')->with('success', 'Utilisateur créé avec succès.');
     }
 
     public function edit(User $user)
@@ -53,6 +58,21 @@ class UserController extends Controller
             'is_active' => 'nullable|boolean',
         ]);
 
+        if ($user->id === auth()->id() && $data['role'] !== $user->role) {
+            return back()->withErrors(['role' => 'Vous ne pouvez pas modifier votre propre rôle.'])
+                ->withInput($request->except('password'));
+        }
+
+        if ($data['role'] === 'super_admin' && !auth()->user()->isSuperAdmin()) {
+            return back()->withErrors(['role' => 'Seul un super administrateur peut attribuer ce rôle.'])
+                ->withInput($request->except('password'));
+        }
+
+        if ($user->role === 'super_admin' && $user->id !== auth()->id() && !auth()->user()->isSuperAdmin()) {
+            return back()->withErrors(['role' => 'Vous ne pouvez pas modifier un super administrateur.'])
+                ->withInput($request->except('password'));
+        }
+
         if ($request->filled('password')) {
             $data['password'] = Hash::make($data['password']);
         } else {
@@ -60,7 +80,7 @@ class UserController extends Controller
         }
 
         $user->update($data);
-        return redirect()->route('admin.users.index')->with('success', 'Utilisateur mis à jour.');
+        return redirect()->route('admin.utilisateurs.index')->with('success', 'Utilisateur mis à jour.');
     }
 
     public function destroy(User $user)
@@ -68,7 +88,16 @@ class UserController extends Controller
         if ($user->id === auth()->id()) {
             return back()->with('error', 'Vous ne pouvez pas supprimer votre propre compte.');
         }
+
+        if ($user->role === 'super_admin' && !auth()->user()->isSuperAdmin()) {
+            return back()->with('error', 'Vous ne pouvez pas supprimer un super administrateur.');
+        }
+
+        if ($user->role === 'super_admin' && User::where('role', 'super_admin')->count() <= 1) {
+            return back()->with('error', 'Impossible de supprimer le dernier super administrateur.');
+        }
+
         $user->delete();
-        return redirect()->route('admin.users.index')->with('success', 'Utilisateur supprimé.');
+        return redirect()->route('admin.utilisateurs.index')->with('success', 'Utilisateur supprimé.');
     }
 }

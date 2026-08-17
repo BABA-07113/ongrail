@@ -16,8 +16,9 @@
  @stack('styles')
 </head>
 <body class="bg-surface-50">
+ @php($authPage = request()->routeIs('admin.login') || request()->routeIs('admin.password.*'))
 
- @if (!request()->routeIs('admin.login'))
+ @if (!$authPage)
  <!-- Premium Sidebar -->
  <aside class="admin-sidebar" id="adminSidebar">
  <div class="sidebar-brand">
@@ -61,18 +62,23 @@
  </a>
 
  <div class="nav-label">Gestion</div>
- <a href="{{ route('admin.contacts.index') }}" class="{{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">
- <i class="fas fa-envelope"></i> <span>Messages</span>
- </a>
- <a href="{{ route('admin.profil.index') }}" class="{{ request()->routeIs('admin.profil.*') ? 'active' : '' }}">
- <i class="fas fa-address-card"></i> <span>Profil & coordonnées</span>
- </a>
- <a href="{{ route('admin.utilisateurs.index') }}" class="{{ request()->routeIs('admin.utilisateurs.*') ? 'active' : '' }}">
- <i class="fas fa-user-shield"></i> <span>Utilisateurs</span>
- </a>
- <a href="{{ route('admin.parametres.index') }}" class="{{ request()->routeIs('admin.parametres.*') ? 'active' : '' }}">
- <i class="fas fa-cog"></i> <span>Paramètres</span>
- </a>
+  <a href="{{ route('admin.contacts.index') }}" class="{{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">
+  <i class="fas fa-envelope"></i> <span>Messages</span>
+  @if(\App\Models\Contact::unread()->count() > 0)
+  <span class="nav-badge">{{ \App\Models\Contact::unread()->count() }}</span>
+  @endif
+  </a>
+  <a href="{{ route('admin.profil') }}" class="{{ request()->routeIs('admin.profil*') ? 'active' : '' }}">
+  <i class="fas fa-address-card"></i> <span>Profil & coordonnées</span>
+  </a>
+  @if(auth()->user() && auth()->user()->isAdmin())
+  <a href="{{ route('admin.utilisateurs.index') }}" class="{{ request()->routeIs('admin.utilisateurs.*') ? 'active' : '' }}">
+  <i class="fas fa-user-shield"></i> <span>Utilisateurs</span>
+  </a>
+  <a href="{{ route('admin.parametres.index') }}" class="{{ request()->routeIs('admin.parametres.*') ? 'active' : '' }}">
+  <i class="fas fa-cog"></i> <span>Paramètres</span>
+  </a>
+  @endif
 
  <div class="nav-label pt-4 mt-4 border-t border-surface-800/50">Compte</div>
  <a href="{{ route('home') }}" target="_blank">
@@ -87,9 +93,9 @@
  @endif
 
  <!-- Main Content Area -->
- @if (request()->routeIs('admin.login'))
+ @if ($authPage)
  <div class="login-page">
- <div class="login-box">
+ <div class="login-box {{ request()->routeIs('admin.login') ? '' : 'login-box--narrow' }}">
  @yield('content')
  </div>
  </div>

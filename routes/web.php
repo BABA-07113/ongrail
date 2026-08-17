@@ -69,6 +69,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+    Route::get('/mot-de-passe-oublie', [AuthController::class, 'showForgot'])->name('password.request');
+    Route::post('/mot-de-passe-oublie', [AuthController::class, 'sendResetLink'])->name('password.email')->middleware('throttle:5,1');
+    Route::get('/reinitialiser/{token}', [AuthController::class, 'showReset'])->name('password.reset');
+    Route::post('/reinitialiser', [AuthController::class, 'reset'])->name('password.store');
+
     Route::middleware('auth')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -88,11 +93,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('ressources', AdminResourceController::class);
         Route::resource('contacts', AdminContactController::class)->only(['index', 'show', 'destroy']);
         Route::post('contacts/{contact}/archive', [AdminContactController::class, 'archive'])->name('contacts.archive');
-        Route::resource('parametres', AdminSettingController::class)->only(['index', 'update']);
-        Route::post('parametres', [AdminSettingController::class, 'update'])->name('parametres.update');
+        Route::get('parametres', [AdminSettingController::class, 'index'])->name('parametres.index')->middleware('admin.role:admin,super_admin');
+        Route::post('parametres', [AdminSettingController::class, 'update'])->name('parametres.update')->middleware('admin.role:admin,super_admin');
         Route::get('profil', [AdminSettingController::class, 'profil'])->name('profil');
         Route::post('profil', [AdminSettingController::class, 'updateProfil'])->name('profil.update');
-        Route::resource('utilisateurs', AdminUserController::class);
+        Route::resource('utilisateurs', AdminUserController::class)->middleware('admin.role:admin,super_admin');
         Route::resource('equipe', AdminTeamMemberController::class);
     });
 });
