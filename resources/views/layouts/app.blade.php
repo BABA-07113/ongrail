@@ -18,7 +18,7 @@
         :root { --bg-texture: url('{{ asset('images/' . rawurlencode('arrière.png')) }}'); }
     </style>
 
-    @include('partials.vite-assets')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-[#F8F7F6] text-ink-800 antialiased">
 
