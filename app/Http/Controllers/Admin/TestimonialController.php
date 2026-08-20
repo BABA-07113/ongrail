@@ -11,7 +11,7 @@ class TestimonialController extends Controller
     public function index()
     {
         $testimonials = Testimonial::latest()->paginate(15);
-        return view('admin.testimonials.index', compact('testimonials'));
+        return view('admin.temoignages.index', compact('testimonials'));
     }
 
     public function create()
@@ -32,7 +32,7 @@ class TestimonialController extends Controller
         ]);
 
         Testimonial::create($data);
-        return redirect()->route('admin.testimonials.index')->with('success', 'Témoignage créé avec succès.');
+        return redirect()->route('admin.temoignages.index')->with('success', 'Témoignage créé avec succès.');
     }
 
     public function edit(Testimonial $testimonial)
@@ -53,12 +53,12 @@ class TestimonialController extends Controller
         ]);
 
         $testimonial->update($data);
-        return redirect()->route('admin.testimonials.index')->with('success', 'Témoignage mis à jour.');
+        return redirect()->route('admin.temoignages.index')->with('success', 'Témoignage mis à jour.');
     }
 
     public function destroy(Testimonial $testimonial)
     {
         $testimonial->delete();
-        return redirect()->route('admin.testimonials.index')->with('success', 'Témoignage supprimé.');
+        return redirect()->route('admin.temoignages.index')->with('success', 'Témoignage supprimé.');
     }
 }

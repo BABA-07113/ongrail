@@ -11,7 +11,7 @@ class PartnerController extends Controller
     public function index()
     {
         $partners = Partner::orderBy('sort_order')->paginate(15);
-        return view('admin.partners.index', compact('partners'));
+        return view('admin.partenaires.index', compact('partners'));
     }
 
     public function create()
@@ -32,7 +32,7 @@ class PartnerController extends Controller
         ]);
 
         Partner::create($data);
-        return redirect()->route('admin.partners.index')->with('success', 'Partenaire créé avec succès.');
+        return redirect()->route('admin.partenaires.index')->with('success', 'Partenaire créé avec succès.');
     }
 
     public function edit(Partner $partner)
@@ -53,12 +53,12 @@ class PartnerController extends Controller
         ]);
 
         $partner->update($data);
-        return redirect()->route('admin.partners.index')->with('success', 'Partenaire mis à jour.');
+        return redirect()->route('admin.partenaires.index')->with('success', 'Partenaire mis à jour.');
     }
 
     public function destroy(Partner $partner)
     {
         $partner->delete();
-        return redirect()->route('admin.partners.index')->with('success', 'Partenaire supprimé.');
+        return redirect()->route('admin.partenaires.index')->with('success', 'Partenaire supprimé.');
     }
 }

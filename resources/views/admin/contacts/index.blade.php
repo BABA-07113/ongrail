@@ -25,9 +25,9 @@
  <td>
  <div class="actions">
  <a href="{{ route('admin.contacts.show', $message) }}" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
- @if(!$message->is_archived)
- <form action="{{ route('admin.contacts.archive', $message) }}" method="POST">@csrf<button type="submit" class="btn btn-sm btn-warning"><i class="fas fa-archive"></i></button></form>
- @endif
+  @if(!$message->is_archived)
+  <button type="button" onclick="openArchiveModal('{{ route('admin.contacts.archive', $message) }}')" class="btn btn-sm btn-warning"><i class="fas fa-archive"></i></button>
+  @endif
  <button type="button" onclick="openDeleteModal('{{ route('admin.contacts.destroy', $message) }}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
  </div>
  </td>

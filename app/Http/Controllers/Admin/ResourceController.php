@@ -11,7 +11,7 @@ class ResourceController extends Controller
     public function index()
     {
         $resources = Resource::latest()->paginate(15);
-        return view('admin.resources.index', compact('resources'));
+        return view('admin.ressources.index', compact('resources'));
     }
 
     public function create()
@@ -31,7 +31,7 @@ class ResourceController extends Controller
         ]);
 
         Resource::create($data);
-        return redirect()->route('admin.resources.index')->with('success', 'Ressource créée avec succès.');
+        return redirect()->route('admin.ressources.index')->with('success', 'Ressource créée avec succès.');
     }
 
     public function edit(Resource $resource)
@@ -51,12 +51,12 @@ class ResourceController extends Controller
         ]);
 
         $resource->update($data);
-        return redirect()->route('admin.resources.index')->with('success', 'Ressource mise à jour.');
+        return redirect()->route('admin.ressources.index')->with('success', 'Ressource mise à jour.');
     }
 
     public function destroy(Resource $resource)
     {
         $resource->delete();
-        return redirect()->route('admin.resources.index')->with('success', 'Ressource supprimée.');
+        return redirect()->route('admin.ressources.index')->with('success', 'Ressource supprimée.');
     }
 }

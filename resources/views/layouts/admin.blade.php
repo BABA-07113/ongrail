@@ -84,7 +84,7 @@
  <a href="{{ route('home') }}" target="_blank">
  <i class="fas fa-external-link-alt"></i> <span>Voir le site</span>
  </a>
- <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+ <a href="#" onclick="event.preventDefault(); document.getElementById('logoutModal').classList.remove('hidden'); document.getElementById('logoutModal').classList.add('flex');">
  <i class="fas fa-sign-out-alt"></i> <span>Déconnexion</span>
  </a>
  <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="hidden">@csrf</form>
@@ -143,6 +143,49 @@
  </div>
  @endif
 
+ <!-- Logout Confirmation Modal -->
+ <div id="logoutModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+ <div class="absolute inset-0 bg-surface-950/60 backdrop-blur-sm" onclick="this.parentElement.classList.add('hidden'); this.parentElement.classList.remove('flex');"></div>
+ <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 border border-surface-200">
+ <div class="flex items-start gap-4">
+ <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0">
+ <i class="fas fa-sign-out-alt"></i>
+ </div>
+ <div>
+ <h3 class="font-display font-bold text-lg text-surface-900">Confirmer la déconnexion</h3>
+ <p class="mt-1 text-sm text-surface-500">Vous allez être déconnecté(e) de l'espace administration. Voulez-vous continuer ?</p>
+ </div>
+ </div>
+ <div class="mt-6 flex justify-end gap-3">
+ <button type="button" onclick="document.getElementById('logoutModal').classList.add('hidden'); document.getElementById('logoutModal').classList.remove('flex');" class="btn btn-outline">Annuler</button>
+ <button type="button" onclick="document.getElementById('logout-form').submit();" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Se déconnecter</button>
+ </div>
+ </div>
+ </div>
+
+ <!-- Archive Confirmation Modal -->
+ <div id="archiveModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+ <div class="absolute inset-0 bg-surface-950/60 backdrop-blur-sm" onclick="document.getElementById('archiveModal').classList.add('hidden'); document.getElementById('archiveModal').classList.remove('flex');"></div>
+ <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 border border-surface-200">
+ <div class="flex items-start gap-4">
+ <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl shrink-0">
+ <i class="fas fa-archive"></i>
+ </div>
+ <div>
+ <h3 class="font-display font-bold text-lg text-surface-900">Confirmer l'archivage</h3>
+ <p class="mt-1 text-sm text-surface-500">Ce message sera archivé et ne sera plus visible dans la liste principale. Voulez-vous continuer ?</p>
+ </div>
+ </div>
+ <div class="mt-6 flex justify-end gap-3">
+ <button type="button" onclick="document.getElementById('archiveModal').classList.add('hidden'); document.getElementById('archiveModal').classList.remove('flex');" class="btn btn-outline">Annuler</button>
+ <form id="archiveForm" method="POST" action="">
+ @csrf
+ <button type="submit" class="btn btn-warning"><i class="fas fa-archive"></i> Archiver</button>
+ </form>
+ </div>
+ </div>
+ </div>
+
  <!-- Delete Confirmation Modal -->
  <div id="deleteModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
  <div class="absolute inset-0 bg-surface-950/60 backdrop-blur-sm" onclick="closeDeleteModal()"></div>
@@ -186,8 +229,21 @@
  modal.classList.remove('flex');
  }
 
+ function openArchiveModal(url) {
+ document.getElementById('archiveForm').setAttribute('action', url);
+ const modal = document.getElementById('archiveModal');
+ modal.classList.remove('hidden');
+ modal.classList.add('flex');
+ }
+
  document.addEventListener('keydown', function(e) {
- if (e.key === 'Escape') closeDeleteModal();
+ if (e.key === 'Escape') {
+ closeDeleteModal();
+ document.getElementById('archiveModal').classList.add('hidden');
+ document.getElementById('archiveModal').classList.remove('flex');
+ document.getElementById('logoutModal').classList.add('hidden');
+ document.getElementById('logoutModal').classList.remove('flex');
+ }
  });
 
  if (sidebarToggle) {

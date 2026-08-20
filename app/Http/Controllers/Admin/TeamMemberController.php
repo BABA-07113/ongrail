@@ -11,7 +11,7 @@ class TeamMemberController extends Controller
     public function index()
     {
         $members = TeamMember::orderBy('sort_order')->paginate(15);
-        return view('admin.team.index', compact('members'));
+        return view('admin.equipe.index', compact('members'));
     }
 
     public function create()
@@ -32,7 +32,7 @@ class TeamMemberController extends Controller
         ]);
 
         TeamMember::create($data);
-        return redirect()->route('admin.team.index')->with('success', 'Membre ajouté avec succès.');
+        return redirect()->route('admin.equipe.index')->with('success', 'Membre ajouté avec succès.');
     }
 
     public function edit(TeamMember $teamMember)
@@ -53,12 +53,12 @@ class TeamMemberController extends Controller
         ]);
 
         $teamMember->update($data);
-        return redirect()->route('admin.team.index')->with('success', 'Membre mis à jour.');
+        return redirect()->route('admin.equipe.index')->with('success', 'Membre mis à jour.');
     }
 
     public function destroy(TeamMember $teamMember)
     {
         $teamMember->delete();
-        return redirect()->route('admin.team.index')->with('success', 'Membre supprimé.');
+        return redirect()->route('admin.equipe.index')->with('success', 'Membre supprimé.');
     }
 }

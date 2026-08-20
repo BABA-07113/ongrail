@@ -13,7 +13,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::with('category')->latest()->paginate(15);
-        return view('admin.projects.index', compact('projects'));
+        return view('admin.projets.index', compact('projects'));
     }
 
     public function create()
@@ -40,7 +40,7 @@ class ProjectController extends Controller
         $data['slug'] = Str::slug($request->title);
         Project::create($data);
 
-        return redirect()->route('admin.projects.index')->with('success', 'Projet créé avec succès.');
+        return redirect()->route('admin.projets.index')->with('success', 'Projet créé avec succès.');
     }
 
     public function edit(Project $project)
@@ -67,12 +67,12 @@ class ProjectController extends Controller
         $data['slug'] = Str::slug($request->title);
         $project->update($data);
 
-        return redirect()->route('admin.projects.index')->with('success', 'Projet mis à jour.');
+        return redirect()->route('admin.projets.index')->with('success', 'Projet mis à jour.');
     }
 
     public function destroy(Project $project)
     {
         $project->delete();
-        return redirect()->route('admin.projects.index')->with('success', 'Projet supprimé.');
+        return redirect()->route('admin.projets.index')->with('success', 'Projet supprimé.');
     }
 }
