@@ -9,7 +9,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::orderBy('created_at', 'desc')->get();
+        $projects = Project::where('status', '!=', 'brouillon')->orderBy('created_at', 'desc')->get();
         return view('pages.projects.index', compact('projects'));
     }
 }

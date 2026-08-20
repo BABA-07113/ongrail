@@ -67,55 +67,31 @@
 {{-- Stats bar --}}
 <section class="relative bg-[#021E12] border-y-2 border-[#FBB507]/30 overflow-hidden">
     <div class="w-full overflow-hidden py-3">
+        @php
+            $statYears = \App\Models\Setting::getValue('stat_years', '23+');
+            $statBeneficiaries = \App\Models\Setting::getValue('stat_beneficiaries', '5000+');
+            $statProjects = \App\Models\Setting::getValue('stat_projects', '15+');
+            $statPartners = \App\Models\Setting::getValue('stat_partners', '6+');
+            $statYoungs = \App\Models\Setting::getValue('stat_youngs', '3200+');
+            $statWomen = \App\Models\Setting::getValue('stat_women', '2800+');
+        @endphp
+        @php
+            $statsData = [
+                ['icon' => 'fa-calendar-check', 'value' => $statYears, 'label' => 'ans d\'engagement communautaire'],
+                ['icon' => 'fa-users', 'value' => $statBeneficiaries, 'label' => 'bénéficiaires formés'],
+                ['icon' => 'fa-hand-holding-heart', 'value' => $statProjects, 'label' => 'projets réalisés'],
+                ['icon' => 'fa-seedling', 'value' => $statPartners, 'label' => 'communautés partenaires'],
+                ['icon' => 'fa-graduation-cap', 'value' => $statYoungs, 'label' => 'jeunes formés aux métiers'],
+                ['icon' => 'fa-female', 'value' => $statWomen, 'label' => 'femmes autonomisées'],
+            ];
+        @endphp
         <div class="flex items-center gap-16 marquee-track" style="white-space: nowrap; animation: marquee 30s linear infinite; width: max-content;">
+            @foreach(array_merge($statsData, $statsData) as $stat)
             <span class="inline-flex items-center gap-3 text-sm text-white/90 font-medium">
-                <i class="fas fa-calendar-check text-[#FBB507] text-base"></i>
-                <span><strong class="text-[#FBB507]">22+ ans</strong> d'engagement communautaire</span>
+                <i class="fas {{ $stat['icon'] }} text-[#FBB507] text-base"></i>
+                <span><strong class="text-[#FBB507]">{{ $stat['value'] }}</strong> {{ $stat['label'] }}</span>
             </span>
-            <span class="inline-flex items-center gap-3 text-sm text-white/90 font-medium">
-                <i class="fas fa-users text-[#FBB507] text-base"></i>
-                <span><strong class="text-[#FBB507]">15 000+</strong> bénéficiaires formés</span>
-            </span>
-            <span class="inline-flex items-center gap-3 text-sm text-white/90 font-medium">
-                <i class="fas fa-hand-holding-heart text-[#FBB507] text-base"></i>
-                <span><strong class="text-[#FBB507]">120+</strong> projets réalisés</span>
-            </span>
-            <span class="inline-flex items-center gap-3 text-sm text-white/90 font-medium">
-                <i class="fas fa-seedling text-[#FBB507] text-base"></i>
-                <span><strong class="text-[#FBB507]">45</strong> communautés partenaires</span>
-            </span>
-            <span class="inline-flex items-center gap-3 text-sm text-white/90 font-medium">
-                <i class="fas fa-graduation-cap text-[#FBB507] text-base"></i>
-                <span><strong class="text-[#FBB507]">3 200+</strong> jeunes formés aux métiers</span>
-            </span>
-            <span class="inline-flex items-center gap-3 text-sm text-white/90 font-medium">
-                <i class="fas fa-female text-[#FBB507] text-base"></i>
-                <span><strong class="text-[#FBB507]">2 800+</strong> femmes autonomisées</span>
-            </span>
-            <span class="inline-flex items-center gap-3 text-sm text-white/90 font-medium">
-                <i class="fas fa-calendar-check text-[#FBB507] text-base"></i>
-                <span><strong class="text-[#FBB507]">22+ ans</strong> d'engagement communautaire</span>
-            </span>
-            <span class="inline-flex items-center gap-3 text-sm text-white/90 font-medium">
-                <i class="fas fa-users text-[#FBB507] text-base"></i>
-                <span><strong class="text-[#FBB507]">15 000+</strong> bénéficiaires formés</span>
-            </span>
-            <span class="inline-flex items-center gap-3 text-sm text-white/90 font-medium">
-                <i class="fas fa-hand-holding-heart text-[#FBB507] text-base"></i>
-                <span><strong class="text-[#FBB507]">120+</strong> projets réalisés</span>
-            </span>
-            <span class="inline-flex items-center gap-3 text-sm text-white/90 font-medium">
-                <i class="fas fa-seedling text-[#FBB507] text-base"></i>
-                <span><strong class="text-[#FBB507]">45</strong> communautés partenaires</span>
-            </span>
-            <span class="inline-flex items-center gap-3 text-sm text-white/90 font-medium">
-                <i class="fas fa-graduation-cap text-[#FBB507] text-base"></i>
-                <span><strong class="text-[#FBB507]">3 200+</strong> jeunes formés aux métiers</span>
-            </span>
-            <span class="inline-flex items-center gap-3 text-sm text-white/90 font-medium">
-                <i class="fas fa-female text-[#FBB507] text-base"></i>
-                <span><strong class="text-[#FBB507]">2 800+</strong> femmes autonomisées</span>
-            </span>
+            @endforeach
         </div>
     </div>
 </section>
@@ -450,82 +426,24 @@
                 <span class="bg-gradient-to-r from-primary-700 via-primary-500 to-accent-500 bg-clip-text text-transparent">Ils nous soutiennent</span>
             </h2>
         </div>
+        @if($partners->count() > 0)
         <div class="marquee-track">
             <div class="marquee-content flex items-center gap-12">
+                @foreach(array_merge($partners->all(), $partners->all()) as $partner)
                 <div class="flex flex-col items-center gap-2 min-w-[140px]">
-                    <div class="w-24 h-16 bg-white rounded-xl shadow-sm border border-ink-100/50 flex items-center justify-center px-4">
-                        <div class="w-full h-6 bg-gradient-to-r from-ink-200/60 to-ink-300/40 rounded"></div>
+                    <div class="w-24 h-16 bg-white rounded-xl shadow-sm border border-ink-100/50 flex items-center justify-center px-4 overflow-hidden">
+                        @if($partner->logo)
+                            <img src="{{ asset($partner->logo) }}" alt="{{ $partner->name }}" class="max-w-full max-h-full object-contain">
+                        @else
+                            <span class="text-lg font-bold text-primary-600">{{ strtoupper(substr($partner->name, 0, 2)) }}</span>
+                        @endif
                     </div>
-                    <span class="text-xs font-medium text-ink-600">Partenaire 1</span>
+                    <span class="text-xs font-medium text-ink-600">{{ $partner->name }}</span>
                 </div>
-                <div class="flex flex-col items-center gap-2 min-w-[140px]">
-                    <div class="w-24 h-16 bg-white rounded-xl shadow-sm border border-ink-100/50 flex items-center justify-center px-4">
-                        <div class="w-full h-6 bg-gradient-to-r from-ink-200/60 to-ink-300/40 rounded"></div>
-                    </div>
-                    <span class="text-xs font-medium text-ink-600">Partenaire 2</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 min-w-[140px]">
-                    <div class="w-24 h-16 bg-white rounded-xl shadow-sm border border-ink-100/50 flex items-center justify-center px-4">
-                        <div class="w-full h-6 bg-gradient-to-r from-ink-200/60 to-ink-300/40 rounded"></div>
-                    </div>
-                    <span class="text-xs font-medium text-ink-600">Partenaire 3</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 min-w-[140px]">
-                    <div class="w-24 h-16 bg-white rounded-xl shadow-sm border border-ink-100/50 flex items-center justify-center px-4">
-                        <div class="w-full h-6 bg-gradient-to-r from-ink-200/60 to-ink-300/40 rounded"></div>
-                    </div>
-                    <span class="text-xs font-medium text-ink-600">Partenaire 4</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 min-w-[140px]">
-                    <div class="w-24 h-16 bg-white rounded-xl shadow-sm border border-ink-100/50 flex items-center justify-center px-4">
-                        <div class="w-full h-6 bg-gradient-to-r from-ink-200/60 to-ink-300/40 rounded"></div>
-                    </div>
-                    <span class="text-xs font-medium text-ink-600">Partenaire 5</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 min-w-[140px]">
-                    <div class="w-24 h-16 bg-white rounded-xl shadow-sm border border-ink-100/50 flex items-center justify-center px-4">
-                        <div class="w-full h-6 bg-gradient-to-r from-ink-200/60 to-ink-300/40 rounded"></div>
-                    </div>
-                    <span class="text-xs font-medium text-ink-600">Partenaire 6</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 min-w-[140px]">
-                    <div class="w-24 h-16 bg-white rounded-xl shadow-sm border border-ink-100/50 flex items-center justify-center px-4">
-                        <div class="w-full h-6 bg-gradient-to-r from-ink-200/60 to-ink-300/40 rounded"></div>
-                    </div>
-                    <span class="text-xs font-medium text-ink-600">Partenaire 1</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 min-w-[140px]">
-                    <div class="w-24 h-16 bg-white rounded-xl shadow-sm border border-ink-100/50 flex items-center justify-center px-4">
-                        <div class="w-full h-6 bg-gradient-to-r from-ink-200/60 to-ink-300/40 rounded"></div>
-                    </div>
-                    <span class="text-xs font-medium text-ink-600">Partenaire 2</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 min-w-[140px]">
-                    <div class="w-24 h-16 bg-white rounded-xl shadow-sm border border-ink-100/50 flex items-center justify-center px-4">
-                        <div class="w-full h-6 bg-gradient-to-r from-ink-200/60 to-ink-300/40 rounded"></div>
-                    </div>
-                    <span class="text-xs font-medium text-ink-600">Partenaire 3</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 min-w-[140px]">
-                    <div class="w-24 h-16 bg-white rounded-xl shadow-sm border border-ink-100/50 flex items-center justify-center px-4">
-                        <div class="w-full h-6 bg-gradient-to-r from-ink-200/60 to-ink-300/40 rounded"></div>
-                    </div>
-                    <span class="text-xs font-medium text-ink-600">Partenaire 4</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 min-w-[140px]">
-                    <div class="w-24 h-16 bg-white rounded-xl shadow-sm border border-ink-100/50 flex items-center justify-center px-4">
-                        <div class="w-full h-6 bg-gradient-to-r from-ink-200/60 to-ink-300/40 rounded"></div>
-                    </div>
-                    <span class="text-xs font-medium text-ink-600">Partenaire 5</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 min-w-[140px]">
-                    <div class="w-24 h-16 bg-white rounded-xl shadow-sm border border-ink-100/50 flex items-center justify-center px-4">
-                        <div class="w-full h-6 bg-gradient-to-r from-ink-200/60 to-ink-300/40 rounded"></div>
-                    </div>
-                    <span class="text-xs font-medium text-ink-600">Partenaire 6</span>
-                </div>
+                @endforeach
             </div>
         </div>
+        @endif
     </div>
 </section>
 

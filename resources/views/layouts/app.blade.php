@@ -90,16 +90,27 @@
                     <p class="text-sm leading-relaxed text-white max-w-xs mb-6">
                         Le RAIL développe des projets concrets pour l'autonomie des populations, des compétences techniques et organisationnelles au profit des femmes et des jeunes au Bénin.
                     </p>
+                    @php
+                        $socialFacebook = \App\Models\Setting::getValue('social_facebook');
+                        $socialLinkedin = \App\Models\Setting::getValue('social_linkedin');
+                        $socialYoutube = \App\Models\Setting::getValue('social_youtube');
+                    @endphp
                     <div class="flex items-center gap-3">
-                        <a href="https://www.facebook.com/railbenin" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-white/60 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
+                        @if($socialFacebook)
+                        <a href="{{ $socialFacebook }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-white/60 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/railbenin" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-white/60 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
+                        @endif
+                        @if($socialLinkedin)
+                        <a href="{{ $socialLinkedin }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-white/60 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://www.youtube.com/@railbenin" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-white/60 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
+                        @endif
+                        @if($socialYoutube)
+                        <a href="{{ $socialYoutube }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-white/60 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
                             <i class="fab fa-youtube"></i>
                         </a>
+                        @endif
                     </div>
                 </div>
 
@@ -135,24 +146,29 @@
                         <span class="relative z-10">Contact</span>
                         <span class="absolute -bottom-1 left-0 w-8 h-[2px] bg-gradient-to-r from-accent-400 to-accent-500 rounded-full"></span>
                     </h4>
+                    @php
+                        $footerAddress = \App\Models\Setting::getValue('contact_address', 'Cotonou, Bénin');
+                        $footerEmail = \App\Models\Setting::getValue('contact_email', 'info@ongrail.com');
+                        $footerPhone = \App\Models\Setting::getValue('contact_phone', '+229 96 01 20 48');
+                    @endphp
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3 text-sm">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-map-marker-alt text-accent-400 text-xs"></i>
                             </span>
-                            <span class="text-white mt-1.5">Cotonou, Bénin</span>
+                            <span class="text-white mt-1.5">{{ $footerAddress }}</span>
                         </li>
                         <li class="flex items-start gap-3 text-sm">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-envelope text-accent-400 text-xs"></i>
                             </span>
-                            <a href="mailto:railbenin@yahoo.fr" class="text-white hover:text-accent-300 transition-colors duration-300 mt-1.5">railbenin@yahoo.fr</a>
+                            <a href="mailto:{{ $footerEmail }}" class="text-white hover:text-accent-300 transition-colors duration-300 mt-1.5">{{ $footerEmail }}</a>
                         </li>
                         <li class="flex items-start gap-3 text-sm">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-phone text-accent-400 text-xs"></i>
                             </span>
-                            <span class="text-white mt-1.5">+229 21 37 20 64</span>
+                            <span class="text-white mt-1.5">{{ $footerPhone }}</span>
                         </li>
                     </ul>
                 </div>

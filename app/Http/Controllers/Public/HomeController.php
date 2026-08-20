@@ -19,8 +19,11 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
-        $projects = Project::where('is_featured', true)
-            ->orWhere('status', 'en_cours')
+        $projects = Project::where(function ($q) {
+                $q->where('is_featured', true)
+                  ->orWhere('status', 'en_cours');
+            })
+            ->where('status', '!=', 'brouillon')
             ->orderBy('created_at', 'desc')
             ->take(3)
             ->get();

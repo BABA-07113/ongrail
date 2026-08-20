@@ -1,7 +1,7 @@
 ﻿@extends('layouts.app')
 
-@section('title', 'Mission - RAIL Bénin')
-@section('meta_description', 'Découvrez la mission, la vision et l\'équipe du RAIL - Réseau d\'appui aux initiatives locales au Bénin.')
+@section('title', $page->meta_title ?? 'Mission - RAIL Bénin')
+@section('meta_description', $page->meta_description ?? 'Découvrez la mission, la vision et l\'équipe du RAIL - Réseau d\'appui aux initiatives locales au Bénin.')
 
 @section('content')
 
@@ -39,12 +39,16 @@
                     <span class="w-0.5 h-8 rounded-full bg-primary-500"></span>
                     <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Depuis 2003</span>
                 </div>
+                @if($page && $page->content)
+                    <div class="text-surface-500 leading-relaxed article-body">{!! \App\Support\DetailContent::render($page->content) !!}</div>
+                @else
                 <p class="text-surface-500 leading-relaxed mb-6">
                     Le <strong class="text-surface-800">Réseau d'Appui aux Initiatives Locales (RAIL)</strong> a comme mission d'améliorer les conditions de vie des populations défavorisées du Bénin. L'organisme se donne également comme mission d'améliorer l'environnement et de lutter contre les effets des variations climatiques.
                 </p>
                 <p class="text-surface-500 leading-relaxed">
                     Le RAIL veut apporter des <strong class="text-surface-700">solutions concrètes</strong> aux jeunes, aux femmes et à toutes personnes marginalisées. À travers des programmes participatifs et inclusifs, nous travaillons main dans la main avec les communautés locales pour co-construire des réponses adaptées à leurs réalités.
                 </p>
+                @endif
             </div>
         </div>
 

@@ -1,5 +1,13 @@
 ﻿@extends('layouts.app')
 
+@php
+    $contactAddress = \App\Models\Setting::getValue('contact_address', 'Quartier Koutongbé, 2ème Arrondissement, 01BP1585 Porto-Novo, Bénin');
+    $contactPhone = \App\Models\Setting::getValue('contact_phone', '+229 96 01 20 48');
+    $contactPhone2 = \App\Models\Setting::getValue('contact_phone_2', '+229 97 13 46 46');
+    $contactEmail = \App\Models\Setting::getValue('contact_email', 'info@ongrail.com');
+    $socialFacebook = \App\Models\Setting::getValue('social_facebook');
+@endphp
+
 @section('title', 'Contact - RAIL Bénin')
 
 @section('content')
@@ -31,7 +39,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-surface-800 text-base mb-0.5">Adresse</h4>
-                            <p class="text-surface-500 text-sm leading-relaxed">Quartier Koutongbé, 2ème Arrondissement<br>01BP1585 Porto-Novo (Bénin)</p>
+                            <p class="text-surface-500 text-sm leading-relaxed">{!! nl2br(e($contactAddress)) !!}</p>
                         </div>
                     </div>
 
@@ -41,7 +49,10 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-surface-800 text-base mb-0.5">Téléphone</h4>
-                            <p class="text-surface-500 text-sm">+229 96 01 20 48</p>
+                            <p class="text-surface-500 text-sm">{{ $contactPhone }}</p>
+                            @if($contactPhone2)
+                            <p class="text-surface-500 text-sm">{{ $contactPhone2 }}</p>
+                            @endif
                         </div>
                     </div>
 
@@ -51,19 +62,21 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-surface-800 text-base mb-0.5">Email</h4>
-                            <p class="text-surface-500 text-sm">info@ongrail.com</p>
+                            <p class="text-surface-500 text-sm">{{ $contactEmail }}</p>
                         </div>
                     </div>
 
+                    @if($socialFacebook)
                     <div class="flex gap-4 items-start">
                         <div class="w-12 h-12 rounded-lg bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0">
                             <i class="fab fa-facebook-f"></i>
                         </div>
                         <div>
                             <h4 class="font-bold text-surface-800 text-base mb-0.5">Facebook</h4>
-                            <p><a href="https://www.facebook.com/railbenin" target="_blank" rel="noopener" class="text-primary-600 hover:text-primary-700 font-medium text-sm">facebook.com/railbenin</a></p>
+                            <p><a href="{{ $socialFacebook }}" target="_blank" rel="noopener" class="text-primary-600 hover:text-primary-700 font-medium text-sm">{{ parse_url($socialFacebook, PHP_URL_HOST) }}</a></p>
                         </div>
                     </div>
+                    @endif
                 </div>
 
                 <div class="grid grid-cols-2 gap-3 mt-8 pt-8 border-t border-surface-100">
@@ -147,7 +160,11 @@
             <h2 class="section-title text-2xl lg:text-3xl">Où <span class="text-primary-600">nous trouver</span></h2>
         </div>
         <div class="rounded-xl overflow-hidden border border-surface-100 animate-fade-up shadow-sm">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.123456!2d2.6!3d6.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzAnMDAuMCJOIDLCsDM2JzAwLjAiRQ!5e0!3m2!1sfr!2sbj!4v1" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" title="Localisation RAIL Bénin"></iframe>
+            @php
+                $mapLat = \App\Models\Setting::getValue('contact_map_lat', '6.4969');
+                $mapLng = \App\Models\Setting::getValue('contact_map_lng', '2.6036');
+            @endphp
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.123456!2d{{ $mapLng }}!3d{{ $mapLat }}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzAnMDAuMCJOIDLCsDM2JzAwLjAiRQ!5e0!3m2!1sfr!2sbj!4v1" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" title="Localisation RAIL Bénin"></iframe>
         </div>
     </div>
 </section>
