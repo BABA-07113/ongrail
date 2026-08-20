@@ -210,6 +210,24 @@
  </div>
  </div>
 
+ <!-- Edit Modal -->
+ <div id="editModal" class="fixed inset-0 z-50 hidden items-start justify-center p-4 pt-10 overflow-y-auto">
+ <div class="absolute inset-0 bg-surface-950/60 backdrop-blur-sm" onclick="closeEditModal()"></div>
+ <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl border border-surface-200 mb-10">
+ <div class="flex items-center justify-between px-6 py-4 border-b border-surface-100">
+ <h3 class="font-display font-bold text-lg text-surface-900" id="editModalTitle">Modifier</h3>
+ <button onclick="closeEditModal()" class="w-8 h-8 rounded-lg hover:bg-surface-100 flex items-center justify-center text-surface-400 hover:text-surface-600 transition-colors">
+ <i class="fas fa-times text-sm"></i>
+ </button>
+ </div>
+ <div id="editModalBody" class="p-6">
+ <div class="flex items-center justify-center py-12">
+ <div class="w-8 h-8 border-2 border-primary-500 border-t-transparent rounded-full animate-spin"></div>
+ </div>
+ </div>
+ </div>
+ </div>
+
  <!-- Admin Scripts -->
  <script>
  const sidebarToggle = document.getElementById('sidebarToggle');
@@ -236,9 +254,92 @@
  modal.classList.add('flex');
  }
 
+ function openEditModal(url) {
+ const modal = document.getElementById('editModal');
+ const body = document.getElementById('editModalBody');
+ body.innerHTML = '<div class="flex items-center justify-center py-12"><div class="w-8 h-8 border-2 border-primary-500 border-t-transparent rounded-full animate-spin"></div></div>';
+ modal.classList.remove('hidden');
+ modal.classList.add('flex');
+ document.body.style.overflow = 'hidden';
+
+ fetch(url)
+ .then(r => r.text())
+ .then(html => {
+ const parser = new DOMParser();
+ const doc = parser.parseFromString(html, 'text/html');
+ const form = doc.querySelector('.admin-card form');
+ const title = doc.querySelector('.admin-card .card-header h3');
+ if (form) {
+ if (title) document.getElementById('editModalTitle').textContent = title.textContent.trim();
+ const wrapper = document.createElement('div');
+ wrapper.appendChild(form.cloneNode(true));
+ body.innerHTML = wrapper.innerHTML;
+ const scripts = doc.querySelectorAll('script');
+ scripts.forEach(s => {
+ const newScript = document.createElement('script');
+ newScript.textContent = s.textContent;
+ document.body.appendChild(newScript);
+ });
+ initModalForms();
+ } else {
+ body.innerHTML = '<div class="text-center py-12 text-surface-500"><i class="fas fa-exclamation-triangle text-2xl mb-3 text-amber-400"></i><p>Formulaire introuvable.</p></div>';
+ }
+ })
+ .catch(() => {
+ body.innerHTML = '<div class="text-center py-12 text-surface-500"><i class="fas fa-exclamation-triangle text-2xl mb-3 text-amber-400"></i><p>Erreur lors du chargement du formulaire.</p></div>';
+ });
+ }
+
+ function closeEditModal() {
+ const modal = document.getElementById('editModal');
+ modal.classList.add('hidden');
+ modal.classList.remove('flex');
+ document.body.style.overflow = '';
+ document.getElementById('editModalBody').innerHTML = '<div class="flex items-center justify-center py-12"><div class="w-8 h-8 border-2 border-primary-500 border-t-transparent rounded-full animate-spin"></div></div>';
+ }
+
+ function initModalForms() {
+ document.querySelectorAll('#editModalBody form').forEach(form => {
+ form.addEventListener('submit', function(e) {
+ e.preventDefault();
+ const submitBtn = this.querySelector('[type="submit"]');
+ if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enregistrement...'; }
+
+ const formData = new FormData(this);
+ const url = this.action;
+ const method = this.querySelector('input[name="_method"]');
+
+ fetch(url, {
+ method: method ? method.value.toUpperCase() : 'POST',
+ body: formData,
+ headers: {
+ 'X-Requested-With': 'XMLHttpRequest',
+ 'Accept': 'application/json'
+ }
+ })
+ .then(r => {
+ if (r.redirected) { window.location.href = r.url; return null; }
+ return r.text();
+ })
+ .then(text => {
+ if (!text) return;
+ try {
+ const data = JSON.parse(text);
+ if (data.redirect) { window.location.href = data.redirect; }
+ else { window.location.reload(); }
+ } catch {
+ window.location.reload();
+ }
+ })
+ .catch(() => { window.location.reload(); });
+ });
+ });
+ }
+
  document.addEventListener('keydown', function(e) {
  if (e.key === 'Escape') {
  closeDeleteModal();
+ closeEditModal();
  document.getElementById('archiveModal').classList.add('hidden');
  document.getElementById('archiveModal').classList.remove('flex');
  document.getElementById('logoutModal').classList.add('hidden');

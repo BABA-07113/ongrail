@@ -31,7 +31,7 @@
  <td>
  <div class="actions">
  <a href="{{ route('articles.show', $article->slug) }}" class="btn btn-sm btn-info" target="_blank"><i class="fas fa-eye"></i></a>
- <a href="{{ route('admin.articles.edit', $article) }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+ <button type="button" onclick="openEditModal('{{ route('admin.articles.edit', $article) }}')" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
  <button type="button" onclick="openDeleteModal('{{ route('admin.articles.destroy', $article) }}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
  </div>
  </td>

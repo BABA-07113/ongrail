@@ -20,7 +20,7 @@
  <td>{{ $partner->sort_order }}</td>
  <td>
  <div class="actions">
- <a href="{{ route('admin.partenaires.edit', $partner) }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+ <button type="button" onclick="openEditModal('{{ route('admin.partenaires.edit', $partner) }}')" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
  <button type="button" onclick="openDeleteModal('{{ route('admin.partenaires.destroy', $partner) }}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
  </div>
  </td>

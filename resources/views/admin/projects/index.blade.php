@@ -20,7 +20,7 @@
  <td>{{ $project->is_featured ? 'Oui' : 'Non' }}</td>
  <td>
  <div class="actions">
- <a href="{{ route('admin.projets.edit', $project) }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+ <button type="button" onclick="openEditModal('{{ route('admin.projets.edit', $project) }}')" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
  <button type="button" onclick="openDeleteModal('{{ route('admin.projets.destroy', $project) }}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
  </div>
  </td>

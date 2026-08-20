@@ -21,7 +21,7 @@
  <td>{{ $member->sort_order }}</td>
  <td>
  <div class="actions">
- <a href="{{ route('admin.equipe.edit', $member) }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+ <button type="button" onclick="openEditModal('{{ route('admin.equipe.edit', $member) }}')" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
  <button type="button" onclick="openDeleteModal('{{ route('admin.equipe.destroy', $member) }}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
  </div>
  </td>

@@ -20,7 +20,7 @@
  <td>{{ $user->is_active ? 'Oui' : 'Non' }}</td>
  <td>
  <div class="actions">
- <a href="{{ route('admin.utilisateurs.edit', $user) }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+ <button type="button" onclick="openEditModal('{{ route('admin.utilisateurs.edit', $user) }}')" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
  @if($user->id !== auth()->id())
  <button type="button" onclick="openDeleteModal('{{ route('admin.utilisateurs.destroy', $user) }}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
  @endif

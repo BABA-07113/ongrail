@@ -20,7 +20,7 @@
  <td>{{ $testimonial->is_approved ? 'Oui' : 'Non' }}</td>
  <td>
  <div class="actions">
- <a href="{{ route('admin.temoignages.edit', $testimonial) }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+ <button type="button" onclick="openEditModal('{{ route('admin.temoignages.edit', $testimonial) }}')" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
  <button type="button" onclick="openDeleteModal('{{ route('admin.temoignages.destroy', $testimonial) }}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
  </div>
  </td>

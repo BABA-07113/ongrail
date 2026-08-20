@@ -29,7 +29,7 @@
  <td>
  <div class="actions" style="display:flex;gap:4px;">
  <a href="{{ route('admin.opportunites.show', $opp) }}" class="btn btn-sm btn-outline" title="Candidatures"><i class="fas fa-users"></i></a>
- <a href="{{ route('admin.opportunites.edit', $opp) }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+ <button type="button" onclick="openEditModal('{{ route('admin.opportunites.edit', $opp) }}')" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
  <button type="button" onclick="openDeleteModal('{{ route('admin.opportunites.destroy', $opp) }}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
  </div>
  </td>
