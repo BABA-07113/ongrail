@@ -95,7 +95,9 @@ class ArticleController extends Controller
 
     public function category($slug, Request $request)
     {
-        $category = Category::where('slug', $slug)->where('type', 'article')->firstOrFail();
+        $category = Category::where('slug', $slug)->where('type', 'article')
+            ->whereNotIn('slug', ['culture', 'sante'])
+            ->firstOrFail();
 
         $query = Article::where('category_id', $category->id)
             ->where('status', 'published')
@@ -111,7 +113,9 @@ class ArticleController extends Controller
 
         $articles = $query->orderBy('published_at', 'desc')->paginate(9);
 
-        $categories = Category::where('type', 'article')->get();
+        $categories = Category::where('type', 'article')
+            ->whereNotIn('slug', ['culture', 'sante'])
+            ->get();
         $recentArticles = Article::where('status', 'published')
             ->whereNotNull('published_at')
             ->orderBy('published_at', 'desc')
@@ -129,7 +133,7 @@ class ArticleController extends Controller
                 'count' => $articles->count(),
             ])->values();
 
-        return view('pages.articles.index', compact('articles', 'categories', 'category', 'recentArticles', 'archives'));
+        return view('pages.articles.index', compact('articles', 'categories', 'recentArticles', 'archives'));
     }
 
     public function archive($month)
@@ -141,7 +145,9 @@ class ArticleController extends Controller
             ->orderBy('published_at', 'desc')
             ->paginate(9);
 
-        $categories = Category::where('type', 'article')->get();
+        $categories = Category::where('type', 'article')
+            ->whereNotIn('slug', ['culture', 'sante'])
+            ->get();
         $recentArticles = Article::where('status', 'published')
             ->whereNotNull('published_at')
             ->orderBy('published_at', 'desc')

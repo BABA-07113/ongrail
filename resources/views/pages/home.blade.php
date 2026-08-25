@@ -8,8 +8,8 @@
 <section id="hero" class="relative min-h-screen flex items-center overflow-hidden pt-20">
     {{-- Background photo with overlay --}}
     <div class="absolute inset-0 z-0">
-        <img src="{{ asset('images/Distribution_des_fonds.jpg') }}" alt="" class="w-full h-full object-cover">
-        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(2,30,18,0.95) 0%, rgba(0,60,40,0.88) 50%, rgba(2,30,18,0.85) 100%);"></div>
+        <img src="{{ asset('images/imageHero.jpg') }}" alt="" class="w-full h-full object-cover">
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(197,240,222,0.95) 0%, rgba(138,212,179,0.88) 50%, rgba(197,240,222,0.85) 100%);"></div>
     </div>
 
     {{-- Gold decorative elements --}}
@@ -29,7 +29,7 @@
                         RAIL Bénin · Fondé en 2003
                     </div>
 
-                    <h1 class="text-white mb-3" style="color: #fff; font-size: clamp(2.2rem, 4.5vw, 4.5rem); line-height: 1.0; letter-spacing: -0.04em; font-weight: 800; text-shadow: 0 4px 30px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.8);">
+                    <h1 class="text-ink-900 mb-3" style="color: #2C2925; font-size: clamp(2.2rem, 4.5vw, 4.5rem); line-height: 1.0; letter-spacing: -0.04em; font-weight: 800; text-shadow: none;">
                         L'autonomie de la<br>
                         communauté des
                     </h1>
@@ -38,16 +38,16 @@
                         <span id="typing-word" class="typing-cursor text-[clamp(2.2rem,4.5vw,4.5rem)] font-display font-extrabold" style="color: #FBB507; letter-spacing: 0.7em; text-shadow: 0 4px 30px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.8);"></span>
                     </div>
 
-                    <p class="text-white text-base lg:text-lg leading-relaxed max-w-lg mb-8" style="color:#fff;text-shadow: 0 2px 20px rgba(0,0,0,0.6);">
+                    <p class="text-ink-800 text-base lg:text-lg leading-relaxed max-w-lg mb-8" style="text-shadow: none;">
                         Le RAIL développe des projets concrets pour l'autonomie des populations, des compétences techniques et organisationnelles au profit des femmes et des jeunes au Bénin.
                     </p>
 
                     <div class="flex flex-wrap gap-3">
-                        <a href="{{ route('about') }}" class="inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold tracking-wider text-[#021E12] bg-[#FBB507] hover:bg-[#E5A406] hover:-translate-y-0.5 transition-all duration-300 shadow-lg">
+                        <a href="{{ route('about') }}" class="inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold tracking-wider text-ink-900 bg-[#FBB507] hover:bg-[#E5A406] hover:-translate-y-0.5 transition-all duration-300 shadow-lg">
                             Découvrir notre mission
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
-                        <a href="{{ route('contact') }}" class="inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold tracking-wider text-white/60 border border-white/20 hover:bg-white/5 hover:text-white hover:border-white/30 transition-all duration-300">
+                        <a href="{{ route('contact') }}" class="inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold tracking-wider text-ink-600 border border-ink-200 hover:bg-white/5 hover:text-ink-800 hover:border-ink-300 transition-all duration-300">
                             Nous contacter
                         </a>
                     </div>
@@ -65,7 +65,7 @@
 </section>
 
 {{-- Stats bar --}}
-<section class="relative bg-[#021E12] border-y-2 border-[#FBB507]/30 overflow-hidden">
+<section class="relative bg-[#C5F0DE] border-y-2 border-[#FBB507]/30 overflow-hidden">
     <div class="w-full overflow-hidden py-3">
         @php
             $statYears = \App\Models\Setting::getValue('stat_years', '23+');
@@ -120,7 +120,7 @@
                     Qui sommes-nous
                 </div>
                 <h2 class="text-4xl lg:text-5xl font-display font-bold leading-tight mb-6">
-                    <span class="bg-gradient-to-r from-primary-700 via-primary-500 to-accent-500 bg-clip-text text-transparent">Réseau d'appui aux<br>Initiatives Locales</span>
+                    <span class="text-ink-900">Réseau d'appui aux<br>Initiatives Locales</span>
                 </h2>
                 <p class="text-lg text-ink-500 leading-relaxed mb-8">
                     Le RAIL développe des projets visant l'autonomie des populations, le développement des compétences techniques et organisationnelles orientées vers l'entrepreneuriat, l'innovation et la créativité au profit des femmes et des jeunes.
@@ -167,7 +167,7 @@
 
 {{-- Message du président --}}
 <section class="relative overflow-hidden py-20 lg:py-28">
-    <div class="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-[#021E12]"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-500 via-primary-400 to-primary-600"></div>
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[50rem] h-[50rem] bg-accent-500/5 rounded-full blur-3xl"></div>
     <div class="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-primary-500/5 rounded-full blur-3xl"></div>
     <div class="absolute top-[20%] left-[10%] w-20 h-20 border border-accent-400/20 rounded-full"></div>
@@ -180,14 +180,14 @@
                     <span class="w-8 h-[1.5px] bg-accent-400/60"></span>
                     Message du président
                 </div>
-                <h2 class="text-3xl lg:text-4xl font-display font-bold text-white">
-                    La vision qui nous<span class="text-accent-400"> anime</span>
+                <h2 class="text-3xl lg:text-4xl font-display font-bold text-ink-900">
+                    La vision qui nous<span class="text-ink-900"> anime</span>
                 </h2>
             </div>
 
             <div class="relative">
                 <div class="absolute -top-6 -left-2 text-6xl text-accent-400/20 font-display leading-none">"</div>
-                <blockquote class="text-xl lg:text-2xl leading-relaxed text-white/80 font-light max-w-3xl mx-auto text-center" style="font-family: 'Playfair Display', serif;">
+                <blockquote class="text-xl lg:text-2xl leading-relaxed text-ink-700 font-light max-w-3xl mx-auto text-center" style="font-family: 'Playfair Display', serif;">
                     Depuis 2003, jour après jour, nous travaillons main dans la main avec les communautés pour construire un avenir où chaque jeune, chaque femme peut réaliser son potentiel. L'autonomie n'est pas un don, c'est une conquête.
                 </blockquote>
                 <div class="absolute -bottom-10 -right-2 text-6xl text-accent-400/20 font-display leading-none">"</div>
@@ -198,8 +198,8 @@
                     AB
                 </div>
                 <div class="text-left">
-                    <div class="font-bold text-white text-lg">Augustin BODJRENOU</div>
-                    <div class="text-sm text-accent-300/70">Président du Conseil d'Administration</div>
+                    <div class="font-bold text-ink-900 text-lg">Augustin BODJRENOU</div>
+                    <div class="text-sm text-ink-600">Président du Conseil d'Administration</div>
                 </div>
             </div>
         </div>
@@ -218,7 +218,7 @@
                 Actualités
             </div>
             <h2 class="text-4xl lg:text-5xl font-display font-extrabold tracking-tight">
-                <span class="bg-gradient-to-r from-primary-700 via-primary-500 to-accent-500 bg-clip-text text-transparent">Dernières nouvelles</span>
+                <span class="text-ink-900">Dernières nouvelles</span>
             </h2>
             <p class="text-ink-400 text-lg mt-3">Suivez nos activités et projets au Bénin</p>
         </div>
@@ -283,7 +283,7 @@
                 Projets
             </div>
             <h2 class="text-4xl lg:text-5xl font-display font-bold">
-                <span class="bg-gradient-to-r from-primary-700 via-primary-500 to-accent-500 bg-clip-text text-transparent">Nos initiatives</span>
+                <span class="text-ink-900">Nos initiatives</span>
             </h2>
             <p class="text-ink-400 text-lg mt-3">Découvrez les projets qui transforment les communautés</p>
         </div>
@@ -305,15 +305,15 @@
                             <span class="inline-block px-3 py-1.5 text-[0.625rem] font-bold tracking-wider uppercase bg-white/20 backdrop-blur-sm text-white/90 rounded-lg w-fit mb-4 shadow-lg">Planifié</span>
                         @endif
                         @if($project->category)
-                        <span class="text-white/50 text-xs mb-2 block">{{ $project->category->name }}</span>
+                        <span class="text-ink-500 text-xs mb-2 block">{{ $project->category->name }}</span>
                         @endif
-                        <h3 class="text-3xl lg:text-4xl font-display font-bold text-white leading-tight mb-4 group-hover:text-accent-300 transition-colors duration-300">
+                        <h3 class="text-3xl lg:text-4xl font-display font-bold text-ink-900 leading-tight mb-4 group-hover:text-accent-300 transition-colors duration-300">
                             <a href="{{ route('projects.index') }}">{{ $project->title }}</a>
                         </h3>
-                        <p class="text-white/70 leading-relaxed mb-6 line-clamp-2 max-w-xl">
+                        <p class="text-ink-600 leading-relaxed mb-6 line-clamp-2 max-w-xl">
                             {{ Str::limit(strip_tags($project->content), 150) }}
                         </p>
-                        <a href="{{ route('projects.index') }}" class="inline-flex items-center gap-2.5 text-sm font-bold tracking-wider text-white bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-6 py-3 hover:bg-white/20 hover:border-white/30 transition-all duration-300 group/link">
+                        <a href="{{ route('projects.index') }}" class="inline-flex items-center gap-2.5 text-sm font-bold tracking-wider text-ink-700 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-6 py-3 hover:bg-white/20 hover:border-white/30 transition-all duration-300 group/link">
                             Découvrir nos projets <i class="fas fa-arrow-right text-xs transition-transform duration-300 group-hover/link:translate-x-1"></i>
                         </a>
                     </div>
@@ -381,19 +381,19 @@
     <div class="absolute inset-0 bg-gradient-to-br from-accent-600 via-accent-500 to-accent-700"></div>
     <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50"></div>
     <div class="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary-900/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary-200/40 rounded-full blur-3xl"></div>
 
     <div class="container text-center relative z-10">
         <div class="max-w-2xl mx-auto">
-            <div class="inline-flex items-center gap-3 text-[0.625rem] font-bold tracking-[0.2em] uppercase text-white/60 mb-5">
+            <div class="inline-flex items-center gap-3 text-[0.625rem] font-bold tracking-[0.2em] uppercase text-ink-500 mb-5">
                 <span class="w-8 h-[1.5px] bg-white/40"></span>
                 Engagement
             </div>
-            <h2 class="text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-6">
+            <h2 class="text-4xl lg:text-5xl font-display font-bold text-ink-900 leading-tight mb-6">
                 Ensemble, construisons<br>
                 <span class="text-primary-900">l'autonomie</span> de demain
             </h2>
-            <p class="text-white/80 text-lg leading-relaxed max-w-lg mx-auto mb-10">
+            <p class="text-ink-600 text-lg leading-relaxed max-w-lg mx-auto mb-10">
                 Rejoignez-nous dans notre mission pour un Bénin où chaque communauté prend en main son développement.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
@@ -401,7 +401,7 @@
                     <i class="fas fa-handshake"></i>
                     Devenir partenaires
                 </a>
-                <a href="{{ route('about') }}" class="inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold tracking-wider text-white/80 border-2 border-white/20 hover:bg-white/10 hover:text-white hover:border-white/30 transition-all duration-300 rounded-xl">
+                <a href="{{ route('about') }}" class="inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold tracking-wider text-ink-600 border-2 border-white/20 hover:bg-white/10 hover:text-white hover:border-white/30 transition-all duration-300 rounded-xl">
                     <i class="fas fa-info-circle"></i>
                     En savoir plus
                 </a>
@@ -423,7 +423,7 @@
                 Partenaires
             </div>
             <h2 class="text-4xl lg:text-5xl font-display font-bold">
-                <span class="bg-gradient-to-r from-primary-700 via-primary-500 to-accent-500 bg-clip-text text-transparent">Ils nous soutiennent</span>
+                <span class="text-ink-900">Ils nous soutiennent</span>
             </h2>
         </div>
         @if($partners->count() > 0)

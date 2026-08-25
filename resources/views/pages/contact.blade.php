@@ -29,7 +29,7 @@
             <div class="animate-fade-left">
                 <div class="section-tag mb-4">Nos coordonnées</div>
                 <h2 class="text-2xl lg:text-3xl mb-8">
-                    Restons en <span class="text-primary-600">contact</span>
+                    Restons en <span class="text-ink-900">contact</span>
                 </h2>
 
                 <div class="space-y-6">
@@ -157,7 +157,7 @@
                 <i class="fas fa-map-marked-alt"></i>
                 Localisation
             </div>
-            <h2 class="section-title text-2xl lg:text-3xl">Où <span class="text-primary-600">nous trouver</span></h2>
+            <h2 class="section-title text-2xl lg:text-3xl">Où <span class="text-ink-900">nous trouver</span></h2>
         </div>
         <div class="rounded-xl overflow-hidden border border-surface-100 animate-fade-up shadow-sm">
             @php

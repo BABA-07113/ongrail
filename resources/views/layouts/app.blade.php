@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="@yield('meta_description', "RAIL Bénin - Réseau d'appui aux initiatives locales")">
-    <meta name="theme-color" content="#007A5E">
+    <meta name="theme-color" content="#4CAF82">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
     <title>@yield('title', "RAIL Bénin | Réseau d'appui aux initiatives locales")</title>
@@ -75,7 +75,7 @@
         @yield('content')
     </main>
 
-    <footer class="relative overflow-hidden bg-gradient-to-br from-primary-800 via-primary-700 to-primary-900">
+    <footer class="relative overflow-hidden bg-gradient-to-br from-primary-300 via-primary-200 to-primary-400">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[60rem] h-[60rem] bg-accent-500/5 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-white/5 rounded-full blur-3xl"></div>
         <div class="absolute top-[30%] left-[5%] w-16 h-16 border border-accent-400/10 rounded-full"></div>
@@ -87,7 +87,7 @@
                     <a href="{{ route('home') }}" class="block mb-6">
                         <img src="{{ asset('images/logoRailLong.png') }}" alt="RAIL Bénin" class="h-16 w-auto">
                     </a>
-                    <p class="text-sm leading-relaxed text-white max-w-xs mb-6">
+                    <p class="text-sm leading-relaxed text-ink-700 max-w-xs mb-6">
                         Le RAIL développe des projets concrets pour l'autonomie des populations, des compétences techniques et organisationnelles au profit des femmes et des jeunes au Bénin.
                     </p>
                     @php
@@ -97,17 +97,17 @@
                     @endphp
                     <div class="flex items-center gap-3">
                         @if($socialFacebook)
-                        <a href="{{ $socialFacebook }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-white/60 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
+                        <a href="{{ $socialFacebook }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-ink-600 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         @endif
                         @if($socialLinkedin)
-                        <a href="{{ $socialLinkedin }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-white/60 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
+                        <a href="{{ $socialLinkedin }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-ink-600 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                         @endif
                         @if($socialYoutube)
-                        <a href="{{ $socialYoutube }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-white/60 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
+                        <a href="{{ $socialYoutube }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/10 text-ink-600 hover:bg-gradient-to-br hover:from-primary-500 hover:to-accent-500 hover:text-white transition-all duration-300 border border-white/10 hover:border-transparent">
                             <i class="fab fa-youtube"></i>
                         </a>
                         @endif
@@ -115,34 +115,34 @@
                 </div>
 
                 <div class="lg:col-span-3">
-                    <h4 class="text-white font-bold text-xs tracking-[0.2em] uppercase mb-6 relative">
+                    <h4 class="text-ink-900 font-bold text-xs tracking-[0.2em] uppercase mb-6 relative">
                         <span class="relative z-10">Navigation</span>
                         <span class="absolute -bottom-1 left-0 w-8 h-[2px] bg-gradient-to-r from-accent-400 to-accent-500 rounded-full"></span>
                     </h4>
                     <ul class="space-y-3">
-                        <li><a href="{{ route('about') }}" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Mission</a></li>
-                        <li><a href="{{ route('activites') }}" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Activités</a></li>
-                        <li><a href="{{ route('projects.index') }}" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Projets</a></li>
-                        <li><a href="{{ route('opportunities.index') }}" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Opportunités</a></li>
+                        <li><a href="{{ route('about') }}" class="text-sm text-ink-700 hover:text-accent-600 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Mission</a></li>
+                        <li><a href="{{ route('activites') }}" class="text-sm text-ink-700 hover:text-accent-600 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Activités</a></li>
+                        <li><a href="{{ route('projects.index') }}" class="text-sm text-ink-700 hover:text-accent-600 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Projets</a></li>
+                        <li><a href="{{ route('opportunities.index') }}" class="text-sm text-ink-700 hover:text-accent-600 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Opportunités</a></li>
                     </ul>
                 </div>
 
                 <div class="lg:col-span-2">
-                    <h4 class="text-white font-bold text-xs tracking-[0.2em] uppercase mb-6 relative">
+                    <h4 class="text-ink-900 font-bold text-xs tracking-[0.2em] uppercase mb-6 relative">
                         <span class="relative z-10">Pages</span>
                         <span class="absolute -bottom-1 left-0 w-8 h-[2px] bg-gradient-to-r from-accent-400 to-accent-500 rounded-full"></span>
                     </h4>
                     <ul class="space-y-3">
-                        <li><a href="{{ route('articles.index') }}" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Actualités</a></li>
-                        <li><a href="{{ route('galleries.index') }}" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Galeries</a></li>
-                        <li><a href="{{ route('partners.index') }}" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Partenaires</a></li>
-                        <li><a href="{{ route('testimonials.index') }}" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Témoignages</a></li>
-                        <li><a href="{{ route('contact') }}" class="text-sm text-white hover:text-accent-300 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Contact</a></li>
+                        <li><a href="{{ route('articles.index') }}" class="text-sm text-ink-700 hover:text-accent-600 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Actualités</a></li>
+                        <li><a href="{{ route('galleries.index') }}" class="text-sm text-ink-700 hover:text-accent-600 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Galeries</a></li>
+                        <li><a href="{{ route('partners.index') }}" class="text-sm text-ink-700 hover:text-accent-600 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Partenaires</a></li>
+                        <li><a href="{{ route('testimonials.index') }}" class="text-sm text-ink-700 hover:text-accent-600 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Témoignages</a></li>
+                        <li><a href="{{ route('contact') }}" class="text-sm text-ink-700 hover:text-accent-600 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2"><i class="fas fa-chevron-right text-[0.4rem] text-accent-400"></i>Contact</a></li>
                     </ul>
                 </div>
 
                 <div class="lg:col-span-3">
-                    <h4 class="text-white font-bold text-xs tracking-[0.2em] uppercase mb-6 relative">
+                    <h4 class="text-ink-900 font-bold text-xs tracking-[0.2em] uppercase mb-6 relative">
                         <span class="relative z-10">Contact</span>
                         <span class="absolute -bottom-1 left-0 w-8 h-[2px] bg-gradient-to-r from-accent-400 to-accent-500 rounded-full"></span>
                     </h4>
@@ -156,28 +156,28 @@
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-map-marker-alt text-accent-400 text-xs"></i>
                             </span>
-                            <span class="text-white mt-1.5">{{ $footerAddress }}</span>
+                            <span class="text-ink-700 mt-1.5">{{ $footerAddress }}</span>
                         </li>
                         <li class="flex items-start gap-3 text-sm">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-envelope text-accent-400 text-xs"></i>
                             </span>
-                            <a href="mailto:{{ $footerEmail }}" class="text-white hover:text-accent-300 transition-colors duration-300 mt-1.5">{{ $footerEmail }}</a>
+                            <a href="mailto:{{ $footerEmail }}" class="text-ink-700 hover:text-accent-600 transition-colors duration-300 mt-1.5">{{ $footerEmail }}</a>
                         </li>
                         <li class="flex items-start gap-3 text-sm">
                             <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-phone text-accent-400 text-xs"></i>
                             </span>
-                            <span class="text-white mt-1.5">{{ $footerPhone }}</span>
+                            <span class="text-ink-700 mt-1.5">{{ $footerPhone }}</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="relative z-10 border-t border-white/5 py-6">
+        <div class="relative z-10 border-t border-ink-200/50 py-6">
             <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/60">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-500">
                     <span>&copy; {{ date('Y') }} RAIL Bénin. Tous droits réservés.</span>
                     <span class="flex items-center gap-2">
                         <span class="w-1.5 h-1.5 rounded-full bg-accent-400/50"></span>
@@ -186,11 +186,11 @@
                     </span>
                 </div>
                 <div class="mt-4 text-center">
-                    <span class="text-xs text-white/60">Développé par
+                    <span class="text-xs text-ink-500">Développé par
                         <a href="https://wa.me/22954253797" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-semibold text-accent-400 underline underline-offset-4 hover:text-accent-300 hover:underline-offset-8 transition-all duration-300" title="Contacter Inès GANDAHO sur WhatsApp">
                             Inès GANDAHO <i class="fas fa-external-link-alt text-[0.6rem]"></i>
                         </a>
-                        <span class="text-white/40">— cliquez pour contacter</span>
+                        <span class="text-ink-400">— cliquez pour contacter</span>
                     </span>
                 </div>
             </div>

@@ -9,8 +9,8 @@ export default {
       colors: {
         primary: {
           50: '#EDFCF4', 100: '#D4F5E4', 200: '#A8EAC9', 300: '#6DD8A4',
-          400: '#34C27D', 500: '#13A862', 600: '#007A5E', 700: '#006344',
-          800: '#004F36', 900: '#003F2C', 950: '#002B1E',
+          400: '#34C27D', 500: '#13A862', 600: '#4CAF82', 700: '#6BC29A',
+          800: '#8AD4B3', 900: '#A8E6CC', 950: '#C5F0DE',
         },
         accent: {
           50: '#FFFAF0', 100: '#FFF0D6', 200: '#FFDFA3', 300: '#FFC86A',
@@ -116,10 +116,10 @@ export default {
         },
       },
       backgroundImage: {
-        'gradient-hero': 'linear-gradient(160deg, #002B1E 0%, #004F36 30%, #007A5E 60%, #006344 100%)',
+        'gradient-hero': 'linear-gradient(160deg, #C5F0DE 0%, #8AD4B3 30%, #4CAF82 60%, #6BC29A 100%)',
         'gradient-dark': 'linear-gradient(180deg, #1A1815 0%, #2C2925 100%)',
         'gradient-gold': 'linear-gradient(135deg, #D4A030, #FAB240)',
-        'gradient-green': 'linear-gradient(135deg, #007A5E, #13A862)',
+        'gradient-green': 'linear-gradient(135deg, #4CAF82, #13A862)',
         'gradient-fire': 'linear-gradient(135deg, #E85D4A, #D13D34)',
         'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
       },

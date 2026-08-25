@@ -23,7 +23,7 @@
                 <i class="fas fa-seedling"></i>
                 Agriculture durable
             </div>
-            <h2 class="section-title">Promouvoir une agriculture <span class="text-primary-600">résiliente</span></h2>
+            <h2 class="section-title">Promouvoir une agriculture <span class="text-ink-900">résiliente</span></h2>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center stagger">
             <div class="relative animate-fade-up">
@@ -52,7 +52,7 @@
                 <i class="fas fa-laptop-code"></i>
                 Numérique
             </div>
-            <h2 class="section-title">L'entrepreneuriat <span class="text-primary-600">numérique</span></h2>
+            <h2 class="section-title">L'entrepreneuriat <span class="text-ink-900">numérique</span></h2>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center stagger">
             <div class="animate-fade-up order-2 lg:order-1">
@@ -81,7 +81,7 @@
                 <i class="fas fa-graduation-cap"></i>
                 Éducation
             </div>
-            <h2 class="section-title">Soutien <span class="text-primary-600">scolaire</span> et éducatif</h2>
+            <h2 class="section-title">Soutien <span class="text-ink-900">scolaire</span> et éducatif</h2>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center stagger">
             <div class="relative animate-fade-up">
@@ -110,7 +110,7 @@
                 <i class="fas fa-tree"></i>
                 Environnement
             </div>
-            <h2 class="section-title">Protection de l'<span class="text-primary-600">environnement</span></h2>
+            <h2 class="section-title">Protection de l'<span class="text-ink-900">environnement</span></h2>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center stagger">
             <div class="animate-fade-up order-2 lg:order-1">
@@ -139,7 +139,7 @@
                 <i class="fas fa-hand-holding-usd"></i>
                 Autonomisation
             </div>
-            <h2 class="section-title">Autonomisation <span class="text-primary-600">des femmes</span></h2>
+            <h2 class="section-title">Autonomisation <span class="text-ink-900">des femmes</span></h2>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center stagger">
             <div class="relative animate-fade-up">
