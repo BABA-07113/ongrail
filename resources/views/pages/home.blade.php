@@ -9,7 +9,7 @@
     {{-- Background photo with overlay --}}
     <div class="absolute inset-0 z-0">
         <img src="{{ asset('images/imageHero.jpg') }}" alt="" class="w-full h-full object-cover">
-        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(197,240,222,0.95) 0%, rgba(138,212,179,0.88) 50%, rgba(197,240,222,0.85) 100%);"></div>
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.65) 100%);"></div>
     </div>
 
     {{-- Gold decorative elements --}}
@@ -29,7 +29,7 @@
                         RAIL Bénin · Fondé en 2003
                     </div>
 
-                    <h1 class="text-ink-900 mb-3" style="color: #2C2925; font-size: clamp(2.2rem, 4.5vw, 4.5rem); line-height: 1.0; letter-spacing: -0.04em; font-weight: 800; text-shadow: none;">
+                    <h1 class="text-white mb-3" style="color: #fff; font-size: clamp(2.2rem, 4.5vw, 4.5rem); line-height: 1.0; letter-spacing: -0.04em; font-weight: 800; text-shadow: 0 4px 30px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.8);">
                         L'autonomie de la<br>
                         communauté des
                     </h1>
@@ -38,7 +38,7 @@
                         <span id="typing-word" class="typing-cursor text-[clamp(2.2rem,4.5vw,4.5rem)] font-display font-extrabold" style="color: #FBB507; letter-spacing: 0.7em; text-shadow: 0 4px 30px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.8);"></span>
                     </div>
 
-                    <p class="text-ink-800 text-base lg:text-lg leading-relaxed max-w-lg mb-8" style="text-shadow: none;">
+                    <p class="text-white text-base lg:text-lg leading-relaxed max-w-lg mb-8" style="color:#fff;text-shadow: 0 2px 20px rgba(0,0,0,0.6);">
                         Le RAIL développe des projets concrets pour l'autonomie des populations, des compétences techniques et organisationnelles au profit des femmes et des jeunes au Bénin.
                     </p>
 
@@ -47,7 +47,7 @@
                             Découvrir notre mission
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
-                        <a href="{{ route('contact') }}" class="inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold tracking-wider text-ink-600 border border-ink-200 hover:bg-white/5 hover:text-ink-800 hover:border-ink-300 transition-all duration-300">
+                        <a href="{{ route('contact') }}" class="inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold tracking-wider text-white/70 border border-white/20 hover:bg-white/10 hover:text-white hover:border-white/30 transition-all duration-300">
                             Nous contacter
                         </a>
                     </div>
