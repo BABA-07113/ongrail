@@ -8,7 +8,7 @@
 <section id="hero" class="relative min-h-screen flex items-center overflow-hidden pt-20">
     {{-- Background photo with overlay --}}
     <div class="absolute inset-0 z-0">
-        <img src="{{ asset('images/imageHero.jpg') }}" alt="" class="w-full h-full object-cover">
+        <img src="{{ asset('images/imageHero.jpg') }}" alt="" class="w-full h-full object-contain object-top sm:object-cover sm:object-center">
         <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.65) 100%);"></div>
     </div>
 
